@@ -19,7 +19,3 @@ public class FunctionCall extends Expression {
                 '}';
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> f26f6eff6f7efc9b5df5d5c5319c1ede1d793e20

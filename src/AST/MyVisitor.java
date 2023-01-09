@@ -2,6 +2,7 @@ package AST;
 
 import AST.Expression.BoolExpr;
 import AST.Expression.Expression;
+import AST.Expression.String_expr;
 import AST.Expression.FunctionCall;
 import AST.Expression.String_expr;
 import AST.Node.DataType;
@@ -442,6 +443,59 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String key = ctx.FONTSIZE().getText();
         Node value = (Node) visit(ctx.NUMBER());
         KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+
+        value.parent = keyValueWidget;
+        return keyValueWidget;
+    }
+
+
+
+    //Container
+    @Override
+    public Node visitContainer(Example1Parser.ContainerContext ctx) {
+        String widgetName = ctx.CONTAINER().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> containerProperties = new ArrayList<>();
+        if(ctx.containerProperties() != null){
+            containerProperties = visitContainerProperties(ctx.containerProperties());
+        }
+        Widget containerWidget = new Widget(widgetName, containerProperties, lineNumber);
+        for(int i = 0; i < containerWidget.widgetProperties.size(); i++){
+            if(i != containerWidget.widgetProperties.size() - 1){
+                containerWidget.widgetProperties.get(i).sibling = containerWidget.widgetProperties.get(i + 1);
+            }
+            containerWidget.widgetProperties.get(i).parent = containerWidget;
+        }
+        return containerWidget;
+    }
+
+    @Override
+    public List<KeyValueWidget> visitContainerProperties(Example1Parser.ContainerPropertiesContext ctx) {
+        List<KeyValueWidget> containerProp = new ArrayList<>();
+        for(int i = 0; i < ctx.containerProperty().size(); i++){
+            KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.containerProperty().get(i));
+            containerProp.add(keyValueWidget);
+        }
+        return containerProp;
+    }
+
+    @Override
+    public KeyValueWidget visitContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
+
+    }
+
+    @Override
+    public KeyValueWidget visitContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -522,6 +576,8 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public Object visitRow(Example1Parser.RowContext ctx) {
         return super.visitRow(ctx);
     }
+
+
 
     @Override
     public Object visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) {
