@@ -1,8 +1,8 @@
-package AST.Assignment;
+package AST.Statement;
 
 import AST.Node.Node;
 
-public class Assignment extends Node {
+public class Assignment extends CodeAttributes {
     Exception expr;
 
     public Assignment(Exception expr) {

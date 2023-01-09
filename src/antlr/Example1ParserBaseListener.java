@@ -773,6 +773,18 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterContainer_att(Example1Parser.Container_attContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitContainer_att(Example1Parser.Container_attContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterScaffold(Example1Parser.ScaffoldContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -780,6 +792,18 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitScaffold(Example1Parser.ScaffoldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBody(Example1Parser.BodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBody(Example1Parser.BodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
