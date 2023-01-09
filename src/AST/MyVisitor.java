@@ -1,5 +1,6 @@
 package AST;
 
+import AST.Expression.BoolExpr;
 import AST.Node.Node;
 import AST.TopLevel.ClassDeclaration;
 import antlr.Example1Parser;
@@ -49,7 +50,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     //Class Declaration
 
-
     @Override
     public Node visitClass_decl(Example1Parser.Class_declContext ctx) {
         int lineNumber = ctx.getStart().getLine();
@@ -64,6 +64,79 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         }
         return new ClassDeclaration(classMember, abs, id, lineNumber);
     }
+
+
+    //Expression
+    //Abeer & Shaza
+    @Override
+    public Node visitBoolExp(Example1Parser.BoolExpContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String value = ctx.getChild(0).getText();
+        boolean boolValue = Boolean.parseBoolean(value);
+        return new BoolExpr(boolValue, lineNumber);
+    }
+
+    @Override
+    public Object visitMinusOne(Example1Parser.MinusOneContext ctx) {
+        return super.visitMinusOne(ctx);
+    }
+
+    @Override
+    public Object visitVariable(Example1Parser.VariableContext ctx) {
+        return super.visitVariable(ctx);
+    }
+
+    @Override
+    public Object visitNumber(Example1Parser.NumberContext ctx) {
+        return super.visitNumber(ctx);
+    }
+
+    @Override
+    public Object visitStringExp(Example1Parser.StringExpContext ctx) {
+        return super.visitStringExp(ctx);
+    }
+
+    @Override
+    public Object visitOperationExpression(Example1Parser.OperationExpressionContext ctx) {
+        return super.visitOperationExpression(ctx);
+    }
+
+    @Override
+    public Object visitAddingOne(Example1Parser.AddingOneContext ctx) {
+        return super.visitAddingOne(ctx);
+    }
+
+    @Override
+    public Object visitFastMatch(Example1Parser.FastMatchContext ctx) {
+        return super.visitFastMatch(ctx);
+    }
+
+    @Override
+    public Object visitFunctionCall(Example1Parser.FunctionCallContext ctx) {
+        return super.visitFunctionCall(ctx);
+    }
+
+    @Override
+    public Object visitCall_function(Example1Parser.Call_functionContext ctx) {
+        return super.visitCall_function(ctx);
+    }
+
+    @Override
+    public Object visitAdding_one(Example1Parser.Adding_oneContext ctx) {
+        return super.visitAdding_one(ctx);
+    }
+
+    @Override
+    public Object visitMinus_one(Example1Parser.Minus_oneContext ctx) {
+        return super.visitMinus_one(ctx);
+    }
+
+    @Override
+    public Object visitFast_math(Example1Parser.Fast_mathContext ctx) {
+        return super.visitFast_math(ctx);
+    }
+
+
 
     // type
     String test = "0";

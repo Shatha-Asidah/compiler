@@ -4,7 +4,7 @@ public class OperationExpression extends Expression {
     Expression left;
     Expression right;
     String operation;
-
+    ///TODO: add attributes
     public OperationExpression(Expression left, Expression right, String operation) {
         this.left = left;
         this.right = right;

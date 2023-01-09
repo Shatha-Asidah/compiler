@@ -5,7 +5,6 @@ import AST.Expression.Expression;
 import AST.Node.Node;
 import AST.Node.NodeType;
 
-///TODO: add attributes
 public class VariableDeclaration extends Node {
     DataType type;
     String id;

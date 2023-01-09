@@ -91,12 +91,6 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunction_parameters(Example1Parser.Function_parametersContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#call_function}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCall_function(Example1Parser.Call_functionContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Example1Parser#for_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -218,6 +212,24 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionCall(Example1Parser.FunctionCallContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Example1Parser#call_function}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCall_function(Example1Parser.Call_functionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#adding_one}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdding_one(Example1Parser.Adding_oneContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#minus_one}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinus_one(Example1Parser.Minus_oneContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#fast_math}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -235,18 +247,6 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Example1Parser#adding_one}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAdding_one(Example1Parser.Adding_oneContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Example1Parser#minus_one}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMinus_one(Example1Parser.Minus_oneContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#number_attribute}.
 	 * @param ctx the parse tree

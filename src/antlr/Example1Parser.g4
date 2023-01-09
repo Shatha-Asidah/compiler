@@ -29,9 +29,7 @@ function
 function_parameters
     : type CHARS (COMMA type CHARS)*
     ;
-call_function
-    : CHARS OPENTEXT CLOSETEXT SEMICOLON
-    ;
+
 for_statement
     : FOR OPENTEXT for_first_part SEMICOLON
     for_secomd_part SEMICOLON
@@ -74,7 +72,15 @@ expr: expr MULTIPLY expr            #OperationExpression
     | TRUE                          #BoolExp
     | FALSE                         #BoolExp
     ;
-
+call_function
+    : CHARS OPENTEXT CLOSETEXT SEMICOLON
+    ;
+adding_one
+    : CHARS SUMS
+    ;
+minus_one
+    : CHARS MINUSS
+    ;
 fast_math
     :  CHARS (SUM_EQUAL|MINUS_EQUAL|DIVID_EQUAL|MULTIPLY_EQUAL)
        (CHARS  | NUMBER)
@@ -83,12 +89,6 @@ for_statement_adding_one
     :  CHARS SUMS
     ;
 for_statement_minuss_one
-    : CHARS MINUSS
-    ;
-adding_one
-    : CHARS SUMS
-    ;
-minus_one
     : CHARS MINUSS
     ;
 number_attribute

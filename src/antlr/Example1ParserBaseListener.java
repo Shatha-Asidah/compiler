@@ -161,18 +161,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCall_function(Example1Parser.Call_functionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCall_function(Example1Parser.Call_functionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterFor_statement(Example1Parser.For_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -389,6 +377,42 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCall_function(Example1Parser.Call_functionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCall_function(Example1Parser.Call_functionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAdding_one(Example1Parser.Adding_oneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAdding_one(Example1Parser.Adding_oneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMinus_one(Example1Parser.Minus_oneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMinus_one(Example1Parser.Minus_oneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFast_math(Example1Parser.Fast_mathContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -420,30 +444,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAdding_one(Example1Parser.Adding_oneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAdding_one(Example1Parser.Adding_oneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMinus_one(Example1Parser.Minus_oneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMinus_one(Example1Parser.Minus_oneContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

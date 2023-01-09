@@ -144,16 +144,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitFunction_parameters(Example1Parser.Function_parametersContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#call_function}.
-	 * @param ctx the parse tree
-	 */
-	void enterCall_function(Example1Parser.Call_functionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#call_function}.
-	 * @param ctx the parse tree
-	 */
-	void exitCall_function(Example1Parser.Call_functionContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Example1Parser#for_statement}.
 	 * @param ctx the parse tree
 	 */
@@ -360,6 +350,36 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitFunctionCall(Example1Parser.FunctionCallContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Example1Parser#call_function}.
+	 * @param ctx the parse tree
+	 */
+	void enterCall_function(Example1Parser.Call_functionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#call_function}.
+	 * @param ctx the parse tree
+	 */
+	void exitCall_function(Example1Parser.Call_functionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#adding_one}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdding_one(Example1Parser.Adding_oneContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#adding_one}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdding_one(Example1Parser.Adding_oneContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#minus_one}.
+	 * @param ctx the parse tree
+	 */
+	void enterMinus_one(Example1Parser.Minus_oneContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#minus_one}.
+	 * @param ctx the parse tree
+	 */
+	void exitMinus_one(Example1Parser.Minus_oneContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#fast_math}.
 	 * @param ctx the parse tree
 	 */
@@ -389,26 +409,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Example1Parser#adding_one}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdding_one(Example1Parser.Adding_oneContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#adding_one}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdding_one(Example1Parser.Adding_oneContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Example1Parser#minus_one}.
-	 * @param ctx the parse tree
-	 */
-	void enterMinus_one(Example1Parser.Minus_oneContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#minus_one}.
-	 * @param ctx the parse tree
-	 */
-	void exitMinus_one(Example1Parser.Minus_oneContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#number_attribute}.
 	 * @param ctx the parse tree
