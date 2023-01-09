@@ -6,4 +6,8 @@ public enum NodeType {
     Expression,
     VariableDeclareation,
 
+
+
+
+
 }

@@ -5,12 +5,12 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/antlr4-4.9.2-complete.jar!/" />
+          <root url="jar://C:/antlr4/lib/antlr4-4.9.2-complete.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
