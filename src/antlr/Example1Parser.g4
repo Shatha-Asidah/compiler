@@ -1,4 +1,4 @@
-parser grammar Example1Parser;
+ parser grammar Example1Parser;
 
 options {tokenVocab=Example1Lexer;}
 program

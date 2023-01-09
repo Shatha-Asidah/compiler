@@ -1,4 +1,4 @@
-package Node;
+package AST.Node;
 
 public enum NodeType {
     Statements,
