@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/antlr4/lib/antlr-4.11.1-complete.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/Telegram Desktop/antlr-4.11.1-complete.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
