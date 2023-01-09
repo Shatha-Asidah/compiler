@@ -1,4 +1,4 @@
-package Node;
+package AST.Node;
 
 abstract public class Node {
     public String nodeName;
