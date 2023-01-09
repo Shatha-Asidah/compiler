@@ -462,23 +462,85 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Example1Parser#scaffold}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScaffold(Example1Parser.ScaffoldContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#scaffoldArgs}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#scaffoldProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScaffoldProperty(Example1Parser.ScaffoldPropertyContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#image}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitImage(Example1Parser.ImageContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#image_assets}.
+	 * Visit a parse tree produced by {@link Example1Parser#imageProperties}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitImage_assets(Example1Parser.Image_assetsContext ctx);
+	T visitImageProperties(Example1Parser.ImagePropertiesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImageProperty(Example1Parser.ImagePropertyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#text}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitText(Example1Parser.TextContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#textProperties}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextProperties(Example1Parser.TextPropertiesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#textProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextProperty(Example1Parser.TextPropertyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#style}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStyle(Example1Parser.StyleContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#textStyleProprties}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ColorKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColorKeyValue(Example1Parser.ColorKeyValueContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FontSizeKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#column}.
 	 * @param ctx the parse tree
@@ -492,29 +554,69 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRow(Example1Parser.RowContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Example1Parser#rowColumnArgs}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ColumnKeyValue}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ColumnWidgetList}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#mainAxisAlignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#mainAxisSize}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#widgetList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWidgetList(Example1Parser.WidgetListContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#container}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitContainer(Example1Parser.ContainerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#container_att}.
+	 * Visit a parse tree produced by {@link Example1Parser#containerProperties}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitContainer_att(Example1Parser.Container_attContext ctx);
+	T visitContainerProperties(Example1Parser.ContainerPropertiesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#scaffold}.
+	 * Visit a parse tree produced by the {@code ContainerKeyValue}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitScaffold(Example1Parser.ScaffoldContext ctx);
+	T visitContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#body}.
+	 * Visit a parse tree produced by the {@code ContainerWidthHeight}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBody(Example1Parser.BodyContext ctx);
+	T visitContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#color}.
 	 * @param ctx the parse tree
@@ -522,35 +624,23 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitColor(Example1Parser.ColorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#width}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWidth(Example1Parser.WidthContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Example1Parser#height}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHeight(Example1Parser.HeightContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Example1Parser#e_button}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitE_button(Example1Parser.E_buttonContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArgs}.
+	 * Visit a parse tree produced by {@link Example1Parser#e_buttonProperties}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElevatedButtonWidgetArgs(Example1Parser.ElevatedButtonWidgetArgsContext ctx);
+	T visitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArg}.
+	 * Visit a parse tree produced by {@link Example1Parser#e_ButtonProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElevatedButtonWidgetArg(Example1Parser.ElevatedButtonWidgetArgContext ctx);
+	T visitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#voidFunction}.
 	 * @param ctx the parse tree

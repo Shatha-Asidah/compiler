@@ -833,6 +833,42 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterScaffold(Example1Parser.ScaffoldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScaffold(Example1Parser.ScaffoldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScaffoldProperty(Example1Parser.ScaffoldPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScaffoldProperty(Example1Parser.ScaffoldPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterImage(Example1Parser.ImageContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -845,13 +881,25 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterImage_assets(Example1Parser.Image_assetsContext ctx) { }
+	@Override public void enterImageProperties(Example1Parser.ImagePropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitImage_assets(Example1Parser.Image_assetsContext ctx) { }
+	@Override public void exitImageProperties(Example1Parser.ImagePropertiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterImageProperty(Example1Parser.ImagePropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImageProperty(Example1Parser.ImagePropertyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -864,6 +912,78 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitText(Example1Parser.TextContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextProperties(Example1Parser.TextPropertiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextProperties(Example1Parser.TextPropertiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextProperty(Example1Parser.TextPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextProperty(Example1Parser.TextPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStyle(Example1Parser.StyleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStyle(Example1Parser.StyleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColorKeyValue(Example1Parser.ColorKeyValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColorKeyValue(Example1Parser.ColorKeyValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -893,6 +1013,78 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMainAxisSize(Example1Parser.MainAxisSizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWidgetList(Example1Parser.WidgetListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWidgetList(Example1Parser.WidgetListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterContainer(Example1Parser.ContainerContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -905,37 +1097,37 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterContainer_att(Example1Parser.Container_attContext ctx) { }
+	@Override public void enterContainerProperties(Example1Parser.ContainerPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitContainer_att(Example1Parser.Container_attContext ctx) { }
+	@Override public void exitContainerProperties(Example1Parser.ContainerPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterScaffold(Example1Parser.ScaffoldContext ctx) { }
+	@Override public void enterContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitScaffold(Example1Parser.ScaffoldContext ctx) { }
+	@Override public void exitContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBody(Example1Parser.BodyContext ctx) { }
+	@Override public void enterContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBody(Example1Parser.BodyContext ctx) { }
+	@Override public void exitContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -953,30 +1145,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWidth(Example1Parser.WidthContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWidth(Example1Parser.WidthContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHeight(Example1Parser.HeightContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHeight(Example1Parser.HeightContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterE_button(Example1Parser.E_buttonContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -989,25 +1157,25 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElevatedButtonWidgetArgs(Example1Parser.ElevatedButtonWidgetArgsContext ctx) { }
+	@Override public void enterE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElevatedButtonWidgetArgs(Example1Parser.ElevatedButtonWidgetArgsContext ctx) { }
+	@Override public void exitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElevatedButtonWidgetArg(Example1Parser.ElevatedButtonWidgetArgContext ctx) { }
+	@Override public void enterE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElevatedButtonWidgetArg(Example1Parser.ElevatedButtonWidgetArgContext ctx) { }
+	@Override public void exitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

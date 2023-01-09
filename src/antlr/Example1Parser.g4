@@ -164,51 +164,108 @@ widget
     | center                    #CenterWidget
     | e_button                  #ElevatedButtonWidget
     ;
+
+scaffold
+    : SCAFFOLD OPENTEXT scaffoldArgs? CLOSETEXT SEMICOLON;
+scaffoldArgs
+    : scaffoldProperty (COMMA scaffoldProperty)* COMMA?
+    ;
+scaffoldProperty
+    : BODY C widget
+    | BACK_COLOR C color
+    ;
+
 image
-    : IMAGE OPENTEXT image_assets CLOSETEXT
+    : IMAGEASSETS OPENTEXT imageProperties CLOSETEXT COMMA?
     ;
-image_assets
-    : IMAGEASSETS OPENTEXT SINGLE_QUOTE CHARS SINGLE_QUOTE CLOSETEXT COMMA
+imageProperties
+    : STRING_EXP (COMMA imageProperty)* COMMA?
     ;
+imageProperty
+    : WIDTH C NUMBER
+    | HEIGHT C NUMBER
+    | COLOR C color
+    ;
+
 text
-    : TEXT OPENTEXT SINGLE_QUOTE (CHARS|NUMBER) SINGLE_QUOTE CLOSETEXT COMMA
+    : TEXT OPENTEXT textProperties CLOSETEXT COMMA?
     ;
+textProperties
+    : STRING_EXP (COMMA textProperty)? COMMA?
+    ;
+textProperty
+    : STYLE C style
+    ;
+style
+    : TEXTSTYLE OPENTEXT textStyleProprties? CLOSETEXT
+    ;
+textStyleProprties
+    : textStyleProprty (COMMA textStyleProprty)* COMMA?
+    ;
+textStyleProprty
+    : COLOR C color         #ColorKeyValue
+    | FONTSIZE C NUMBER     #FontSizeKeyValue
+    ;
+
 column
-    : COLUMN OPENTEXT CHILDREN C OB (image text+)* CB CLOSETEXT COMMA
+    : COLUMN OPENTEXT rowColumnArgs? CLOSETEXT COMMA?
     ;
 row
-    : ROW OPENTEXT CHILDREN C OB column+ CB  CLOSETEXT COMMA
+    : ROW OPENTEXT rowColumnArgs? CLOSETEXT COMMA?
     ;
-container : CONTAINER OPENTEXT container_att* CHILD C widget CLOSETEXT COMMA;//
-container_att:COLOR C color
-             |WIDTH C width
-             |HEIGHT C height;
-scaffold: SCAFFOLD OPENTEXT body CLOSETEXT SEMICOLON;
-body: BODY C (container| column | row) COMMA;
-color: CHARS COMMA;
-width: NUMBER COMMA;
-height: NUMBER COMMA;
+rowColumnArgs
+    : rowColumnArg (COMMA rowColumnArg)* COMMA?
+    ;
+rowColumnArg
+    : MAINAXISALIGNMENT_KEY C mainAxisAlignment         #ColumnKeyValue
+    | MAINAXISSIZE_KEY C mainAxisSize                   #ColumnKeyValue
+    | CHILDREN C widgetList                             #ColumnWidgetList
+    ;
+mainAxisAlignment
+    : MAINAXISALIGNMENT_VALUE DOT MAINAXISALIGNMENT_VALUES
+    ;
+mainAxisSize
+    : MAINAXISSIZE_VALUE DOT MAINAXISSIZE_VALUES
+    ;
+widgetList
+    : OB (widget (COMMA widget)*)? COMMA? CB COMMA?
+    ;
+
+container
+    : CONTAINER OPENTEXT containerProperties? CLOSETEXT COMMA?
+    ;
+containerProperties
+    : containerProperty (COMMA containerProperty)* COMMA?
+    ;
+containerProperty
+    : COLOR C color         #ContainerKeyValue
+    | WIDTH C NUMBER            #ContainerWidthHeight
+    | HEIGHT C NUMBER           #ContainerWidthHeight
+    | CHILD C widget            #ContainerKeyValue
+    ;
+
+color
+    : CHARS
+    ;
+
 e_button
-  : E_BUTTON OPENTEXT elevatedButtonWidgetArgs CLOSETEXT
-  ;
-
-elevatedButtonWidgetArgs
-  : elevatedButtonWidgetArg (COMMA elevatedButtonWidgetArg)*
-  ;
-
-elevatedButtonWidgetArg
-  : ON_PRESSED C voidFunction
-  | COLOR C color
-  | CHILD C widget
-  ;
-
+    : E_BUTTON OPENTEXT e_buttonProperties CLOSETEXT
+    ;
+e_buttonProperties
+    : e_ButtonProperty (COMMA e_ButtonProperty)*
+    ;
+e_ButtonProperty
+    : ON_PRESSED C voidFunction
+    | COLOR C color
+    | CHILD C widget
+    ;
 voidFunction
-  : CHARS OPENTEXT CLOSETEXT
-  | OPENTEXT CLOSETEXT block
-  ;
- center
-   : CENTER OPENTEXT centerWidgetArgs CLOSETEXT
-   ;
- centerWidgetArgs
-   : CHILD C widget
-   ;
+    : CHARS OPENTEXT CLOSETEXT
+    | OPENTEXT CLOSETEXT block
+    ;
+center
+    : CENTER OPENTEXT centerWidgetArgs CLOSETEXT
+    ;
+centerWidgetArgs
+    : CHILD C widget
+    ;

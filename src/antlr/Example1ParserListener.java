@@ -774,6 +774,36 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Example1Parser#scaffold}.
+	 * @param ctx the parse tree
+	 */
+	void enterScaffold(Example1Parser.ScaffoldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#scaffold}.
+	 * @param ctx the parse tree
+	 */
+	void exitScaffold(Example1Parser.ScaffoldContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#scaffoldArgs}.
+	 * @param ctx the parse tree
+	 */
+	void enterScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#scaffoldArgs}.
+	 * @param ctx the parse tree
+	 */
+	void exitScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#scaffoldProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterScaffoldProperty(Example1Parser.ScaffoldPropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#scaffoldProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitScaffoldProperty(Example1Parser.ScaffoldPropertyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#image}.
 	 * @param ctx the parse tree
 	 */
@@ -784,15 +814,25 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitImage(Example1Parser.ImageContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#image_assets}.
+	 * Enter a parse tree produced by {@link Example1Parser#imageProperties}.
 	 * @param ctx the parse tree
 	 */
-	void enterImage_assets(Example1Parser.Image_assetsContext ctx);
+	void enterImageProperties(Example1Parser.ImagePropertiesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#image_assets}.
+	 * Exit a parse tree produced by {@link Example1Parser#imageProperties}.
 	 * @param ctx the parse tree
 	 */
-	void exitImage_assets(Example1Parser.Image_assetsContext ctx);
+	void exitImageProperties(Example1Parser.ImagePropertiesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterImageProperty(Example1Parser.ImagePropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitImageProperty(Example1Parser.ImagePropertyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#text}.
 	 * @param ctx the parse tree
@@ -803,6 +843,70 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitText(Example1Parser.TextContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#textProperties}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextProperties(Example1Parser.TextPropertiesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#textProperties}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextProperties(Example1Parser.TextPropertiesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#textProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextProperty(Example1Parser.TextPropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#textProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextProperty(Example1Parser.TextPropertyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#style}.
+	 * @param ctx the parse tree
+	 */
+	void enterStyle(Example1Parser.StyleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#style}.
+	 * @param ctx the parse tree
+	 */
+	void exitStyle(Example1Parser.StyleContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#textStyleProprties}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#textStyleProprties}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ColorKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 */
+	void enterColorKeyValue(Example1Parser.ColorKeyValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ColorKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 */
+	void exitColorKeyValue(Example1Parser.ColorKeyValueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FontSizeKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 */
+	void enterFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FontSizeKeyValue}
+	 * labeled alternative in {@link Example1Parser#textStyleProprty}.
+	 * @param ctx the parse tree
+	 */
+	void exitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#column}.
 	 * @param ctx the parse tree
@@ -824,6 +928,70 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitRow(Example1Parser.RowContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Example1Parser#rowColumnArgs}.
+	 * @param ctx the parse tree
+	 */
+	void enterRowColumnArgs(Example1Parser.RowColumnArgsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#rowColumnArgs}.
+	 * @param ctx the parse tree
+	 */
+	void exitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ColumnKeyValue}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ColumnKeyValue}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ColumnWidgetList}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ColumnWidgetList}
+	 * labeled alternative in {@link Example1Parser#rowColumnArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#mainAxisAlignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#mainAxisAlignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#mainAxisSize}.
+	 * @param ctx the parse tree
+	 */
+	void enterMainAxisSize(Example1Parser.MainAxisSizeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#mainAxisSize}.
+	 * @param ctx the parse tree
+	 */
+	void exitMainAxisSize(Example1Parser.MainAxisSizeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#widgetList}.
+	 * @param ctx the parse tree
+	 */
+	void enterWidgetList(Example1Parser.WidgetListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#widgetList}.
+	 * @param ctx the parse tree
+	 */
+	void exitWidgetList(Example1Parser.WidgetListContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#container}.
 	 * @param ctx the parse tree
 	 */
@@ -834,35 +1002,39 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitContainer(Example1Parser.ContainerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#container_att}.
+	 * Enter a parse tree produced by {@link Example1Parser#containerProperties}.
 	 * @param ctx the parse tree
 	 */
-	void enterContainer_att(Example1Parser.Container_attContext ctx);
+	void enterContainerProperties(Example1Parser.ContainerPropertiesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#container_att}.
+	 * Exit a parse tree produced by {@link Example1Parser#containerProperties}.
 	 * @param ctx the parse tree
 	 */
-	void exitContainer_att(Example1Parser.Container_attContext ctx);
+	void exitContainerProperties(Example1Parser.ContainerPropertiesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#scaffold}.
+	 * Enter a parse tree produced by the {@code ContainerKeyValue}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterScaffold(Example1Parser.ScaffoldContext ctx);
+	void enterContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#scaffold}.
+	 * Exit a parse tree produced by the {@code ContainerKeyValue}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitScaffold(Example1Parser.ScaffoldContext ctx);
+	void exitContainerKeyValue(Example1Parser.ContainerKeyValueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#body}.
+	 * Enter a parse tree produced by the {@code ContainerWidthHeight}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterBody(Example1Parser.BodyContext ctx);
+	void enterContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#body}.
+	 * Exit a parse tree produced by the {@code ContainerWidthHeight}
+	 * labeled alternative in {@link Example1Parser#containerProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitBody(Example1Parser.BodyContext ctx);
+	void exitContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#color}.
 	 * @param ctx the parse tree
@@ -874,26 +1046,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitColor(Example1Parser.ColorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#width}.
-	 * @param ctx the parse tree
-	 */
-	void enterWidth(Example1Parser.WidthContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#width}.
-	 * @param ctx the parse tree
-	 */
-	void exitWidth(Example1Parser.WidthContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Example1Parser#height}.
-	 * @param ctx the parse tree
-	 */
-	void enterHeight(Example1Parser.HeightContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#height}.
-	 * @param ctx the parse tree
-	 */
-	void exitHeight(Example1Parser.HeightContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Example1Parser#e_button}.
 	 * @param ctx the parse tree
 	 */
@@ -904,25 +1056,25 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitE_button(Example1Parser.E_buttonContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArgs}.
+	 * Enter a parse tree produced by {@link Example1Parser#e_buttonProperties}.
 	 * @param ctx the parse tree
 	 */
-	void enterElevatedButtonWidgetArgs(Example1Parser.ElevatedButtonWidgetArgsContext ctx);
+	void enterE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArgs}.
+	 * Exit a parse tree produced by {@link Example1Parser#e_buttonProperties}.
 	 * @param ctx the parse tree
 	 */
-	void exitElevatedButtonWidgetArgs(Example1Parser.ElevatedButtonWidgetArgsContext ctx);
+	void exitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArg}.
+	 * Enter a parse tree produced by {@link Example1Parser#e_ButtonProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterElevatedButtonWidgetArg(Example1Parser.ElevatedButtonWidgetArgContext ctx);
+	void enterE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#elevatedButtonWidgetArg}.
+	 * Exit a parse tree produced by {@link Example1Parser#e_ButtonProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitElevatedButtonWidgetArg(Example1Parser.ElevatedButtonWidgetArgContext ctx);
+	void exitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#voidFunction}.
 	 * @param ctx the parse tree

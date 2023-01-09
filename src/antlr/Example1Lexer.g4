@@ -62,7 +62,7 @@ COLUMN:'Column';
 E_BUTTON : 'ElevatedButton';
 ROW: 'Row';
 CONTAINER:'Container';
-CHILDREN:'Children';
+CHILDREN:'children';
 IMAGEASSETS:'Image.assets';
 IMAGE: 'Image';
 CHILD: 'child';
@@ -74,6 +74,17 @@ HEIGHT: 'height';
 WIDTH: 'width';
 ON_PRESSED:'onPressed';
 CENTER: 'Center';
+BACK_COLOR : 'backgroundColor';
+MAINAXISALIGNMENT_KEY : 'mainAxisAlignment';
+MAINAXISALIGNMENT_VALUE : 'MainAxisAlignment';
+
+MAINAXISSIZE_KEY : 'mainAxisSize';
+MAINAXISSIZE_VALUE : 'MainAxisSize';
+MAINAXISALIGNMENT_VALUES : ('center' | 'start' | 'end' | 'spaceBetween' | 'spaceAround' | 'spaceEvenly');
+MAINAXISSIZE_VALUES : ('min' | 'max');
+FONTSIZE : 'fontSize';
+STYLE : 'style';
+TEXTSTYLE : 'TextStyle';
 
 NUMBER: [0-9]+;
 CHARS: [a-z][a-zA-Z0-9_]*;
