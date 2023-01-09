@@ -1,9 +1,6 @@
 package AST;
 
-import AST.Expression.BoolExpr;
-import AST.Expression.Expression;
-import AST.Expression.String_expr;
-import AST.Expression.FunctionCall;
+import AST.Expression.*;
 import AST.Expression.String_expr;
 import AST.Node.DataType;
 import AST.Node.Node;
@@ -378,12 +375,18 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return textWidget;
     }
 
-    ///TODO: not complete
     @Override
     public List<KeyValueWidget> visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> textArgs = new ArrayList<>();
-        KeyValueWidget keyValueWidget = visitTextProperty(ctx.textProperty());
+        String value = ctx.STRING_EXP().getText();
+        Node stringValue = new String_expr(value, lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget("data",stringValue,lineNumber);
         textArgs.add(keyValueWidget);
+        if(ctx.textProperty() != null){
+            KeyValueWidget textKeyValue = visitTextProperty(ctx.textProperty());
+            textArgs.add(keyValueWidget);
+        }
         return textArgs;
     }
 
@@ -493,25 +496,16 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public KeyValueWidget visitContainerWidthHeight(Example1Parser.ContainerWidthHeightContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
-        Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
-        value.parent = keyValueWidget;
+        String value = ctx.NUMBER().getText();
+        int number = Integer.parseInt(value);
+        Node valueNode = new Number_expr(number,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, valueNode, lineNumber);
+        valueNode.parent = keyValueWidget;
         return keyValueWidget;
     }
 
 
-
-
-
-
-
-
-
-
-
     //ELEVATED
-
-
     @Override
     public Node visitE_button(Example1Parser.E_buttonContext ctx) {
         String widgetName = ctx.E_BUTTON().getText();
