@@ -79,6 +79,18 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Example1Parser#list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitList(Example1Parser.ListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#list_exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitList_exp(Example1Parser.List_expContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#function}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -393,18 +405,6 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrint_statements(Example1Parser.Print_statementsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Example1Parser#list}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitList(Example1Parser.ListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Example1Parser#list_exp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitList_exp(Example1Parser.List_expContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ScaffoldWidget}
 	 * labeled alternative in {@link Example1Parser#widget}.

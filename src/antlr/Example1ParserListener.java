@@ -124,6 +124,26 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Example1Parser#list}.
+	 * @param ctx the parse tree
+	 */
+	void enterList(Example1Parser.ListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#list}.
+	 * @param ctx the parse tree
+	 */
+	void exitList(Example1Parser.ListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#list_exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterList_exp(Example1Parser.List_expContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#list_exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitList_exp(Example1Parser.List_expContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#function}.
 	 * @param ctx the parse tree
 	 */
@@ -657,26 +677,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrint_statements(Example1Parser.Print_statementsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Example1Parser#list}.
-	 * @param ctx the parse tree
-	 */
-	void enterList(Example1Parser.ListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#list}.
-	 * @param ctx the parse tree
-	 */
-	void exitList(Example1Parser.ListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Example1Parser#list_exp}.
-	 * @param ctx the parse tree
-	 */
-	void enterList_exp(Example1Parser.List_expContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Example1Parser#list_exp}.
-	 * @param ctx the parse tree
-	 */
-	void exitList_exp(Example1Parser.List_expContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ScaffoldWidget}
 	 * labeled alternative in {@link Example1Parser#widget}.

@@ -4,6 +4,7 @@ import AST.Expression.ListExpression;
 import AST.Node.DataType;
 import AST.Node.Node;
 
+///TODO: add attributes
 public class ListDeclaration extends Node {
     DataType type;
     ListExpression listExpression;

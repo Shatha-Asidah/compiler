@@ -28,6 +28,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     // TopLevel
+    // esmael aya
     @Override
     public Node visitVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx) {
         return (Node) visit(ctx.variables_decl());
@@ -46,6 +47,36 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public Node visitWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx) {
         return (Node) visit(ctx.widget());
+    }
+
+    @Override
+    public Object visitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx) {
+        return super.visitVariableDeclarationClass(ctx);
+    }
+
+    @Override
+    public Object visitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx) {
+        return super.visitFunctionDeclarationClass(ctx);
+    }
+
+    @Override
+    public Object visitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx) {
+        return super.visitVariableDeclarationType(ctx);
+    }
+
+    @Override
+    public Object visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) {
+        return super.visitVaraibleListDeclaration(ctx);
+    }
+
+    @Override
+    public Object visitList(Example1Parser.ListContext ctx) {
+        return super.visitList(ctx);
+    }
+
+    @Override
+    public Object visitList_exp(Example1Parser.List_expContext ctx) {
+        return super.visitList_exp(ctx);
     }
 
     //Class Declaration

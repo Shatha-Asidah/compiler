@@ -88,6 +88,20 @@ public class Example1ParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitList(Example1Parser.ListContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitList_exp(Example1Parser.List_expContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitFunction(Example1Parser.FunctionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -418,20 +432,6 @@ public class Example1ParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitPrint_statements(Example1Parser.Print_statementsContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitList(Example1Parser.ListContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitList_exp(Example1Parser.List_expContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

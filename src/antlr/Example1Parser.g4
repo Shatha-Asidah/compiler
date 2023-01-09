@@ -21,6 +21,13 @@ variables_decl
     : type CHARS EQUAL expr SEMICOLON       #VariableDeclarationType
     | list                                  #VaraibleListDeclaration
     ;
+list
+    : LIST TAG_OPEN type TAG_CLOSE
+        CHARS EQUAL OB list_exp? CB SEMICOLON
+    ;
+list_exp
+    : expr (COMMA expr)*
+    ;
 function
     : (VOID| type) CHARS
        OPENTEXT function_parameters? CLOSETEXT
@@ -144,15 +151,6 @@ assignment
     ;
 print_statements
     : PRINT OPENTEXT expr CLOSETEXT SEMICOLON
-    ;
-
-
-list
-    : LIST TAG_OPEN type TAG_CLOSE
-        CHARS EQUAL OB list_exp? CB SEMICOLON
-    ;
-list_exp
-    : expr (COMMA expr)*
     ;
 
 //Flutter
