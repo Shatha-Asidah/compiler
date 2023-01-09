@@ -514,32 +514,41 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     @Override
-    public Object visitE_button(Example1Parser.E_buttonContext ctx) {
-//        String widgetName = ctx.SCAFFOLD().getText();
-//        int lineNumber = ctx.getStart().getLine();
-//        List<KeyValueWidget> scaffoldArgs = new ArrayList<>();
-//        if(ctx.scaffoldArgs() != null){
-//            scaffoldArgs = visitScaffoldArgs(ctx.scaffoldArgs());
-//        }
-//        Widget scaffoldWidget = new Widget(widgetName, scaffoldArgs, lineNumber);
-//        for(int i = 0; i < scaffoldWidget.widgetProperties.size(); i++){
-//            if(i != scaffoldWidget.widgetProperties.size() - 1){
-//                scaffoldWidget.widgetProperties.get(i).sibling = scaffoldWidget.widgetProperties.get(i + 1);
-//            }
-//            scaffoldWidget.widgetProperties.get(i).parent = scaffoldWidget;
-//        }
-//        return scaffoldWidget;
-        return super.visitE_button(ctx);
+    public Node visitE_button(Example1Parser.E_buttonContext ctx) {
+        String widgetName = ctx.E_BUTTON().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> e_buttonProperties = new ArrayList<>();
+        if(ctx.e_buttonProperties() != null){
+            e_buttonProperties = visitE_buttonProperties(ctx.e_buttonProperties());
+        }
+        Widget E_ButtonWidget = new Widget(widgetName, e_buttonProperties, lineNumber);
+        for(int i = 0; i < E_ButtonWidget.widgetProperties.size(); i++){
+            if(i != E_ButtonWidget.widgetProperties.size() - 1){
+                E_ButtonWidget.widgetProperties.get(i).sibling = E_ButtonWidget.widgetProperties.get(i + 1);
+            }
+            E_ButtonWidget.widgetProperties.get(i).parent = E_ButtonWidget;
+        }
+        return E_ButtonWidget;
     }
 
     @Override
-    public Object visitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) {
-        return super.visitE_buttonProperties(ctx);
+    public List<KeyValueWidget> visitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) {
+        List<KeyValueWidget> elevatedArgs = new ArrayList<>();
+        for(int i = 0; i < ctx.e_ButtonProperty().size(); i++){
+            KeyValueWidget keyValueWidget = visitE_ButtonProperty(ctx.e_ButtonProperty().get(i));
+            elevatedArgs.add(keyValueWidget);
+        }
+        return elevatedArgs;
     }
 
     @Override
-    public Object visitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx) {
-        return super.visitE_ButtonProperty(ctx);
+    public KeyValueWidget visitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override
@@ -554,13 +563,33 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     @Override
     public Object visitCenter(Example1Parser.CenterContext ctx) {
-        return super.visitCenter(ctx);
+
+        String widgetName = ctx.CENTER().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> centerWidgetArgs = new ArrayList<>();
+        if(ctx.centerWidgetArgs() != null){
+            //centerWidgetArgs = visitCenterWidgetArgs(ctx.centerWidgetArgs());
+        }
+        Widget CenterWidget = new Widget(widgetName, centerWidgetArgs, lineNumber);
+        for(int i = 0; i < CenterWidget.widgetProperties.size(); i++){
+            if(i != CenterWidget.widgetProperties.size() - 1){
+                CenterWidget.widgetProperties.get(i).sibling = CenterWidget.widgetProperties.get(i + 1);
+            }
+            CenterWidget.widgetProperties.get(i).parent = CenterWidget;
+        }
+        return CenterWidget;
     }
 
-    @Override
-    public Object visitCenterWidgetArgs(Example1Parser.CenterWidgetArgsContext ctx) {
-        return super.visitCenterWidgetArgs(ctx);
-    }
+//    @Override
+//    public List<KeyValueWidget> visitCenterWidgetArgs(Example1Parser.CenterWidgetArgsContext ctx) {
+//        List<KeyValueWidget> centerWidgetArgs = new ArrayList<>();
+//        for(int i = 0; i < ctx.().size(); i++){
+//            KeyValueWidget keyValueWidget = visitE_ButtonProperty(ctx.e_ButtonProperty().get(i));
+//            centerWidgetArgs.add(keyValueWidget);
+//        }
+//        return centerWidgetArgs;
+//    }
+
 
 
 
