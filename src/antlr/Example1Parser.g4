@@ -58,10 +58,10 @@ type
     | STRING
     | BOOL
     ;
-expr: expr MULTIPLY expr            #Multiplication
-    | expr SUM expr                 #Addition
-    | expr MINUS expr               #Minus
-    | expr DIVID expr               #Division
+expr: expr MULTIPLY expr            #OperationExpression
+    | expr SUM expr                 #OperationExpression
+    | expr MINUS expr               #OperationExpression
+    | expr DIVID expr               #OperationExpression
     | CHARS                         #Variable
     | NUMBER                        #Number
     | STRING_EXP                    #StringExp
@@ -203,7 +203,7 @@ elevatedButtonWidgetArg
 
 voidFunction
   : CHARS OPENTEXT CLOSETEXT
-  | (){}
+  | OPENTEXT CLOSETEXT block
   ;
  center
    : CENTER OPENTEXT centerWidgetArgs CLOSETEXT
