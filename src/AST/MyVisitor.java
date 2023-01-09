@@ -380,7 +380,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         }
         return textWidget;
     }
-    //TODO: not complete
+    ///TODO: not complete
     @Override
     public List<KeyValueWidget> visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
         List<KeyValueWidget> textArgs = new ArrayList<>();
@@ -501,6 +501,15 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
 
+
+
+
+
+
+
+
+
+
     //ELEVATED
 
 
@@ -565,22 +574,65 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     //Column and Row
 
 
+    @Override
+    public Node visitRow(Example1Parser.RowContext ctx) {
+
+         String widgetName = ctx.ROW().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> rowargs = new ArrayList<>();
+        if(ctx.rowColumnArgs()!= null){
+            rowargs = visitRowColumnArgs(ctx.rowColumnArgs());
+        }
+        Widget row_widget = new Widget(widgetName, rowargs, lineNumber);
+        for(int i = 0; i < row_widget.widgetProperties.size(); i++){
+            if(i != row_widget.widgetProperties.size() - 1){
+                row_widget.widgetProperties.get(i).sibling = row_widget.widgetProperties.get(i + 1);
+            }
+            row_widget.widgetProperties.get(i).parent = row_widget;
+        }
+        return row_widget;
+
+    }
 
 
 
     @Override
-    public Object visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) {
-        return super.visitRowColumnArgs(ctx);
+    public List<KeyValueWidget> visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) {
+        List<KeyValueWidget> rowcolumnarg = new ArrayList<>();
+        for(int i = 0; i < ctx.rowColumnArg().size(); i++){
+            KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.rowColumnArg().get(i));
+            rowcolumnarg.add(keyValueWidget);
+        }
+        return rowcolumnarg;
     }
 
     @Override
-    public Object visitColumn(Example1Parser.ColumnContext ctx) {
-        return super.visitColumn(ctx);
+    public Node visitColumn(Example1Parser.ColumnContext ctx) {
+        String widgetName = ctx.COLUMN().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> coulmnarg = new ArrayList<>();
+        if(ctx.rowColumnArgs()!= null){
+            coulmnarg = visitRowColumnArgs(ctx.rowColumnArgs());
+        }
+        Widget row_widget = new Widget(widgetName, coulmnarg, lineNumber);
+        for(int i = 0; i < row_widget.widgetProperties.size(); i++){
+            if(i != row_widget.widgetProperties.size() - 1){
+                row_widget.widgetProperties.get(i).sibling = row_widget.widgetProperties.get(i + 1);
+            }
+            row_widget.widgetProperties.get(i).parent = row_widget;
+        }
+        return row_widget;
+
     }
 
     @Override
-    public Object visitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx) {
-        return super.visitColumnKeyValue(ctx);
+    public KeyValueWidget visitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override

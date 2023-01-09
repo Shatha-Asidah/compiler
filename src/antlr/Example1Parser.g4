@@ -1,5 +1,6 @@
 parser grammar Example1Parser;
-options {tokenVocab=Example1Lexer;}
+options {tokenVocab=Example1Lexer;
+}
 
 program
     : topLevel+
@@ -149,7 +150,6 @@ if_part
     | CHARS                         #CharsExpression
     | expr                          #SingleExpression
     ;
-//logical_sympol : OR | AND;
 assignment
     : CHARS EQUAL expr SEMICOLON
     ;
@@ -267,6 +267,7 @@ voidFunction
     : CHARS OPENTEXT CLOSETEXT      #CallFunction
     | OPENTEXT CLOSETEXT block      #FunctionBlock
     ;
+
 center
     : CENTER OPENTEXT centerWidgetArgs CLOSETEXT
     ;
