@@ -172,13 +172,21 @@ image_assets
 text
     : TEXT OPENTEXT SINGLE_QUOTE (CHARS|NUMBER) SINGLE_QUOTE CLOSETEXT COMMA
     ;
-column: COLUMN OPENTEXT CHILDREN C OB (image text+)* CB CLOSETEXT COMMA;//
-row: ROW OPENTEXT CHILDREN C OB column+ CB  CLOSETEXT COMMA;//
-container : CONTAINER OPENTEXT (color width height) CHILD C (row|column) CLOSETEXT COMMA;//
-scaffold: SCAFFOLD OPENTEXT BODY C (container|column|row) CLOSETEXT SEMICOLON;//
-color: COLOR C CHARS COMMA;//
-width: WIDTH C NUMBER COMMA;//
-height: HEIGHT C NUMBER COMMA;//
+column:
+       COLUMN OPENTEXT CHILDREN C OB (image text+)* CB CLOSETEXT COMMA
+      ;//
+row:
+    ROW OPENTEXT CHILDREN C OB column+ CB  CLOSETEXT COMMA
+   ;//
+container : CONTAINER OPENTEXT container_att* CHILD C widget CLOSETEXT COMMA;//
+container_att:COLOR C color
+             |WIDTH C width
+             |HEIGHT C height;
+scaffold: SCAFFOLD OPENTEXT body CLOSETEXT SEMICOLON;
+body: BODY C (container| column | row) COMMA;
+color: CHARS COMMA;
+width: NUMBER COMMA;
+height: NUMBER COMMA;
 e_button
   : E_BUTTON OPENTEXT elevatedButtonWidgetArgs CLOSETEXT
   ;
@@ -194,7 +202,7 @@ elevatedButtonWidgetArg
   ;
 
 voidFunction
-  : ID OPENTEXT CLOSETEXT
+  : CHARS OPENTEXT CLOSETEXT
   | (){}
   ;
  center
