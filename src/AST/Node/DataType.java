@@ -1,4 +1,4 @@
-package AST;
+package AST.Node;
 
 public enum DataType {
     Integer,
