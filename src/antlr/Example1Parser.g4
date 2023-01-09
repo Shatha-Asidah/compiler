@@ -2,7 +2,7 @@ parser grammar Example1Parser;
 
 options {tokenVocab=Example1Lexer;}
 program
-    : topLevel*
+    : topLevel+
     ;
 topLevel
     : variables_decl
