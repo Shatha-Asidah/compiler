@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
 int x = 0;
 Scaffold(
 body: Text("sd"),
 backgroundColor: red,
 );
-=======
-dd();
->>>>>>> Stashed changes
