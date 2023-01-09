@@ -2,5 +2,5 @@ package AST.Expression;
 
 import AST.Node.Node;
 
-public class Expression extends Node {
+abstract public class Expression extends Node {
 }
