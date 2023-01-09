@@ -74,13 +74,13 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         DataType type = (DataType) visit(ctx.type());
         String id = ctx.CHARS().getText();
         Expression expression = (Expression) visit(ctx.expr());
-        symbolTable.addKeyValue(id,expression);
-        return new VariableDeclaration(type,id,expression,lineNumber);
+        symbolTable.addKeyValue(id, expression);
+        return new VariableDeclaration(type, id, expression, lineNumber);
     }
 
     @Override
     public Node visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) {
-        return(Node) super.visitVaraibleListDeclaration(ctx);
+        return (Node) super.visitVaraibleListDeclaration(ctx);
     }
 
     @Override
@@ -101,8 +101,8 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         boolean abs = ctx.ABSTRACT() != null;
         String id = ctx.CHARS().getText();
         ArrayList<Node> classMember = new ArrayList<>();
-        if(ctx.class_member() != null){
-            for(int i = 0; i < ctx.class_member().size(); i++){
+        if (ctx.class_member() != null) {
+            for (int i = 0; i < ctx.class_member().size(); i++) {
                 Node node = (Node) visit(ctx.class_member().get(i));
                 classMember.add(node);
             }
@@ -186,7 +186,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
 
-
     // type
     String test = "0";
 
@@ -195,30 +194,28 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public DataType visitType(Example1Parser.TypeContext ctx) {
         String type = ctx.getChild(0).getText();
         DataType type1 = null;
-        switch (type)
-        {
-            case "int" : type1 = DataType.Integer;
-            break;
-            case "string" : type1 = DataType.String;
-            break;
-            case "Boolean" : type1 = DataType.Boolean;
-            break;
-            case  "var" : type1 = DataType.Var;
-            break;
-            default:break;
+        switch (type) {
+            case "int":
+                type1 = DataType.Integer;
+                break;
+            case "string":
+                type1 = DataType.String;
+                break;
+            case "Boolean":
+                type1 = DataType.Boolean;
+                break;
+            case "var":
+                type1 = DataType.Var;
+                break;
+            default:
+                break;
         }
         return type1;
     }
 
 
-
-
-
     //Code Attributes
     String test1 = "0";
-
-
-
 
 
     //Widgets
@@ -272,12 +269,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.SCAFFOLD().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> scaffoldArgs = new ArrayList<>();
-        if(ctx.scaffoldArgs() != null){
+        if (ctx.scaffoldArgs() != null) {
             scaffoldArgs = visitScaffoldArgs(ctx.scaffoldArgs());
         }
         Widget scaffoldWidget = new Widget(widgetName, scaffoldArgs, lineNumber);
-        for(int i = 0; i < scaffoldWidget.widgetProperties.size(); i++){
-            if(i != scaffoldWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < scaffoldWidget.widgetProperties.size(); i++) {
+            if (i != scaffoldWidget.widgetProperties.size() - 1) {
                 scaffoldWidget.widgetProperties.get(i).sibling = scaffoldWidget.widgetProperties.get(i + 1);
             }
             scaffoldWidget.widgetProperties.get(i).parent = scaffoldWidget;
@@ -288,7 +285,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public List<KeyValueWidget> visitScaffoldArgs(Example1Parser.ScaffoldArgsContext ctx) {
         List<KeyValueWidget> scaffoldArgs = new ArrayList<>();
-        for(int i = 0; i < ctx.scaffoldProperty().size(); i++){
+        for (int i = 0; i < ctx.scaffoldProperty().size(); i++) {
             KeyValueWidget keyValueWidget = visitScaffoldProperty(ctx.scaffoldProperty().get(i));
             scaffoldArgs.add(keyValueWidget);
         }
@@ -300,7 +297,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -313,8 +310,8 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> image = visitImageProperties(ctx.imageProperties());
         Widget imageWidget = new Widget(widgetName, image, lineNumber);
-        for(int i = 0; i < imageWidget.widgetProperties.size(); i++){
-            if(i != imageWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < imageWidget.widgetProperties.size(); i++) {
+            if (i != imageWidget.widgetProperties.size() - 1) {
                 imageWidget.widgetProperties.get(i).sibling = imageWidget.widgetProperties.get(i + 1);
             }
             imageWidget.widgetProperties.get(i).parent = imageWidget;
@@ -326,13 +323,13 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public List<KeyValueWidget> visitImageProperties(Example1Parser.ImagePropertiesContext ctx) {
         String string_exp = ctx.STRING_EXP().getText();
         int lineNumber = ctx.getStart().getLine();
-        Node string_expr = new String_expr(string_exp,lineNumber);
-        KeyValueWidget key = new KeyValueWidget("data",string_expr,lineNumber);
+        Node string_expr = new String_expr(string_exp, lineNumber);
+        KeyValueWidget key = new KeyValueWidget("data", string_expr, lineNumber);
         List<KeyValueWidget> image = new ArrayList<>();
         image.add(key);
-        if(ctx.imageProperty()!=null) {
+        if (ctx.imageProperty() != null) {
             for (int i = 0; i < ctx.imageProperty().size(); i++) {
-                KeyValueWidget keyValueWidget =(KeyValueWidget) visit(ctx.imageProperty().get(i));
+                KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.imageProperty().get(i));
                 image.add(keyValueWidget);
             }
         }
@@ -344,7 +341,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
 
@@ -355,11 +352,10 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
-
 
 
     //Text
@@ -368,18 +364,19 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.TEXT().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> textArgs = new ArrayList<>();
-        if(ctx.textProperties() != null){
+        if (ctx.textProperties() != null) {
             textArgs = visitTextProperties(ctx.textProperties());
         }
         Widget textWidget = new Widget(widgetName, textArgs, lineNumber);
-        for(int i = 0; i < textWidget.widgetProperties.size(); i++){
-            if(i != textWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < textWidget.widgetProperties.size(); i++) {
+            if (i != textWidget.widgetProperties.size() - 1) {
                 textWidget.widgetProperties.get(i).sibling = textWidget.widgetProperties.get(i + 1);
             }
             textWidget.widgetProperties.get(i).parent = textWidget;
         }
         return textWidget;
     }
+
     ///TODO: not complete
     @Override
     public List<KeyValueWidget> visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
@@ -394,7 +391,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.STYLE().getText();
         Node value = (Node) visit(ctx.style());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -404,12 +401,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.TEXTSTYLE().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> styleArgs = new ArrayList<>();
-        if(ctx.textStyleProprties() != null){
+        if (ctx.textStyleProprties() != null) {
             styleArgs = visitTextStyleProprties(ctx.textStyleProprties());
         }
         Widget textStyleWidget = new Widget(widgetName, styleArgs, lineNumber);
-        for(int i = 0; i < textStyleWidget.widgetProperties.size(); i++){
-            if(i != textStyleWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < textStyleWidget.widgetProperties.size(); i++) {
+            if (i != textStyleWidget.widgetProperties.size() - 1) {
                 textStyleWidget.widgetProperties.get(i).sibling = textStyleWidget.widgetProperties.get(i + 1);
             }
             textStyleWidget.widgetProperties.get(i).parent = textStyleWidget;
@@ -420,19 +417,20 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public List<KeyValueWidget> visitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx) {
         List<KeyValueWidget> textStyleArgs = new ArrayList<>();
-        for(int i = 0; i < ctx.textStyleProprty().size(); i++){
+        for (int i = 0; i < ctx.textStyleProprty().size(); i++) {
             KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.textStyleProprty().get(i));
             textStyleArgs.add(keyValueWidget);
         }
         return textStyleArgs;
     }
+
     ///TODO: check this
     @Override
     public KeyValueWidget visitColorKeyValue(Example1Parser.ColorKeyValueContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.COLOR().getText();
         Node value = (Node) visit(ctx.color());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -442,12 +440,11 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.FONTSIZE().getText();
         Node value = (Node) visit(ctx.NUMBER());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
 
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
-
 
 
     //Container
@@ -456,12 +453,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.CONTAINER().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> containerProperties = new ArrayList<>();
-        if(ctx.containerProperties() != null){
+        if (ctx.containerProperties() != null) {
             containerProperties = visitContainerProperties(ctx.containerProperties());
         }
         Widget containerWidget = new Widget(widgetName, containerProperties, lineNumber);
-        for(int i = 0; i < containerWidget.widgetProperties.size(); i++){
-            if(i != containerWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < containerWidget.widgetProperties.size(); i++) {
+            if (i != containerWidget.widgetProperties.size() - 1) {
                 containerWidget.widgetProperties.get(i).sibling = containerWidget.widgetProperties.get(i + 1);
             }
             containerWidget.widgetProperties.get(i).parent = containerWidget;
@@ -472,7 +469,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public List<KeyValueWidget> visitContainerProperties(Example1Parser.ContainerPropertiesContext ctx) {
         List<KeyValueWidget> containerProp = new ArrayList<>();
-        for(int i = 0; i < ctx.containerProperty().size(); i++){
+        for (int i = 0; i < ctx.containerProperty().size(); i++) {
             KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.containerProperty().get(i));
             containerProp.add(keyValueWidget);
         }
@@ -484,7 +481,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
 
@@ -495,19 +492,10 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
-
-
-
-
-
-
-
-
-
 
 
     //ELEVATED
@@ -518,12 +506,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.E_BUTTON().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> e_buttonProperties = new ArrayList<>();
-        if(ctx.e_buttonProperties() != null){
+        if (ctx.e_buttonProperties() != null) {
             e_buttonProperties = visitE_buttonProperties(ctx.e_buttonProperties());
         }
         Widget E_ButtonWidget = new Widget(widgetName, e_buttonProperties, lineNumber);
-        for(int i = 0; i < E_ButtonWidget.widgetProperties.size(); i++){
-            if(i != E_ButtonWidget.widgetProperties.size() - 1){
+        for (int i = 0; i < E_ButtonWidget.widgetProperties.size(); i++) {
+            if (i != E_ButtonWidget.widgetProperties.size() - 1) {
                 E_ButtonWidget.widgetProperties.get(i).sibling = E_ButtonWidget.widgetProperties.get(i + 1);
             }
             E_ButtonWidget.widgetProperties.get(i).parent = E_ButtonWidget;
@@ -534,7 +522,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public List<KeyValueWidget> visitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) {
         List<KeyValueWidget> elevatedArgs = new ArrayList<>();
-        for(int i = 0; i < ctx.e_ButtonProperty().size(); i++){
+        for (int i = 0; i < ctx.e_ButtonProperty().size(); i++) {
             KeyValueWidget keyValueWidget = visitE_ButtonProperty(ctx.e_ButtonProperty().get(i));
             elevatedArgs.add(keyValueWidget);
         }
@@ -546,7 +534,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -562,17 +550,15 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitCenter(Example1Parser.CenterContext ctx) {
-
+    public Node visitCenter(Example1Parser.CenterContext ctx) {
         String widgetName = ctx.CENTER().getText();
         int lineNumber = ctx.getStart().getLine();
-        List<KeyValueWidget> centerWidgetArgs = new ArrayList<>();
-        if(ctx.centerWidgetArgs() != null){
-            //centerWidgetArgs = visitCenterWidgetArgs(ctx.centerWidgetArgs());
-        }
-        Widget CenterWidget = new Widget(widgetName, centerWidgetArgs, lineNumber);
-        for(int i = 0; i < CenterWidget.widgetProperties.size(); i++){
-            if(i != CenterWidget.widgetProperties.size() - 1){
+        KeyValueWidget center = visitCenterWidgetArgs(ctx.centerWidgetArgs());
+        List<KeyValueWidget> keyValueWidgets = new ArrayList<>();
+        keyValueWidgets.add(center);
+        Widget CenterWidget = new Widget(widgetName, keyValueWidgets, lineNumber);
+        for (int i = 0; i < CenterWidget.widgetProperties.size(); i++) {
+            if (i != CenterWidget.widgetProperties.size() - 1) {
                 CenterWidget.widgetProperties.get(i).sibling = CenterWidget.widgetProperties.get(i + 1);
             }
             CenterWidget.widgetProperties.get(i).parent = CenterWidget;
@@ -580,22 +566,22 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return CenterWidget;
     }
 
-//    @Override
-//    public List<KeyValueWidget> visitCenterWidgetArgs(Example1Parser.CenterWidgetArgsContext ctx) {
-//        List<KeyValueWidget> centerWidgetArgs = new ArrayList<>();
-//        for(int i = 0; i < ctx.().size(); i++){
-//            KeyValueWidget keyValueWidget = visitE_ButtonProperty(ctx.e_ButtonProperty().get(i));
-//            centerWidgetArgs.add(keyValueWidget);
-//        }
-//        return centerWidgetArgs;
-//    }
+    @Override
+    public KeyValueWidget visitCenterWidgetArgs(Example1Parser.CenterWidgetArgsContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.CHILD().getText();
+        Node value = (Node) visit(ctx.widget());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
+    }
 
 
     @Override
     public Node visitColor(Example1Parser.ColorContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String color = ctx.CHARS().getText();
-        String_expr color_exp = new String_expr(color,lineNumber);
+        String_expr color_exp = new String_expr(color, lineNumber);
         return color_exp;
     }
 
@@ -606,15 +592,15 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public Node visitRow(Example1Parser.RowContext ctx) {
 
-         String widgetName = ctx.ROW().getText();
+        String widgetName = ctx.ROW().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> rowargs = new ArrayList<>();
-        if(ctx.rowColumnArgs()!= null){
+        if (ctx.rowColumnArgs() != null) {
             rowargs = visitRowColumnArgs(ctx.rowColumnArgs());
         }
         Widget row_widget = new Widget(widgetName, rowargs, lineNumber);
-        for(int i = 0; i < row_widget.widgetProperties.size(); i++){
-            if(i != row_widget.widgetProperties.size() - 1){
+        for (int i = 0; i < row_widget.widgetProperties.size(); i++) {
+            if (i != row_widget.widgetProperties.size() - 1) {
                 row_widget.widgetProperties.get(i).sibling = row_widget.widgetProperties.get(i + 1);
             }
             row_widget.widgetProperties.get(i).parent = row_widget;
@@ -624,11 +610,10 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
 
-
     @Override
     public List<KeyValueWidget> visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) {
         List<KeyValueWidget> rowcolumnarg = new ArrayList<>();
-        for(int i = 0; i < ctx.rowColumnArg().size(); i++){
+        for (int i = 0; i < ctx.rowColumnArg().size(); i++) {
             KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.rowColumnArg().get(i));
             rowcolumnarg.add(keyValueWidget);
         }
@@ -640,12 +625,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         String widgetName = ctx.COLUMN().getText();
         int lineNumber = ctx.getStart().getLine();
         List<KeyValueWidget> coulmnarg = new ArrayList<>();
-        if(ctx.rowColumnArgs()!= null){
+        if (ctx.rowColumnArgs() != null) {
             coulmnarg = visitRowColumnArgs(ctx.rowColumnArgs());
         }
         Widget row_widget = new Widget(widgetName, coulmnarg, lineNumber);
-        for(int i = 0; i < row_widget.widgetProperties.size(); i++){
-            if(i != row_widget.widgetProperties.size() - 1){
+        for (int i = 0; i < row_widget.widgetProperties.size(); i++) {
+            if (i != row_widget.widgetProperties.size() - 1) {
                 row_widget.widgetProperties.get(i).sibling = row_widget.widgetProperties.get(i + 1);
             }
             row_widget.widgetProperties.get(i).parent = row_widget;
@@ -659,7 +644,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
