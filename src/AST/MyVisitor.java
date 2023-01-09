@@ -1,6 +1,7 @@
 package AST;
 
 import AST.Expression.BoolExpr;
+import AST.Expression.FunctionCall;
 import AST.Node.Node;
 import AST.TopLevel.ClassDeclaration;
 import AST.Widget.KeyValueWidget;
@@ -153,7 +154,11 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     @Override
     public Object visitCall_function(Example1Parser.Call_functionContext ctx) {
-        return super.visitCall_function(ctx);
+
+        int lineNumber = ctx.getStart().getLine();
+        String call_name = ctx.CHARS().getText();
+        return new FunctionCall(call_name, lineNumber);
+
     }
 
     @Override
