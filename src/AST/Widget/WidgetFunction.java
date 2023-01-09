@@ -9,6 +9,7 @@ public class WidgetFunction extends Node {
 
     public WidgetFunction(Block block,int lineNumber) {
         this.childCount = 1;
+        this.leftChild = block;
         this.lineNumber = lineNumber;
         this.block = block;
         this.nodeName = "Widget Function";
@@ -16,4 +17,10 @@ public class WidgetFunction extends Node {
     }
 
 
+    @Override
+    public String toString() {
+        return "WidgetFunction{\n" +
+                "block=" + block +
+                "\n}";
+    }
 }
