@@ -5,7 +5,6 @@ import AST.Node.DataType;
 import AST.Node.Node;
 import AST.Node.NodeType;
 
-///TODO: add attributes
 public class ListDeclaration extends Node {
     DataType type;
     ListExpression listExpression;
@@ -14,9 +13,9 @@ public class ListDeclaration extends Node {
         this.type = type;
         this.listExpression = listExpression;
         this.nodeName = "ListDeclaration";
-        //this.nodeType = NodeType.;
+        this.nodeType = NodeType.ListDeclaration;
         this.lineNumber = lineNumber;
-
+        this.leftChild = listExpression;
     }
 
     @Override
