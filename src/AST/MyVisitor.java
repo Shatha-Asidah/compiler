@@ -1,20 +1,18 @@
 package AST;
 
 import AST.Expression.BoolExpr;
-<<<<<<< HEAD
-import AST.Expression.String_expr;
-=======
+import AST.Expression.Expression;
 import AST.Expression.FunctionCall;
->>>>>>> f26f6eff6f7efc9b5df5d5c5319c1ede1d793e20
+import AST.Expression.String_expr;
+import AST.Node.DataType;
 import AST.Node.Node;
 import AST.TopLevel.ClassDeclaration;
+import AST.TopLevel.VariableDeclaration;
 import AST.Widget.KeyValueWidget;
 import AST.Widget.Widget;
-import AST.*;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,28 +58,33 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx) {
-        return super.visitVariableDeclarationClass(ctx);
+    public Node visitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx) {
+        return (Node) super.visitVariableDeclarationClass(ctx);
     }
 
     @Override
-    public Object visitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx) {
-        return super.visitFunctionDeclarationClass(ctx);
+    public Node visitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx) {
+        return (Node) super.visitFunctionDeclarationClass(ctx);
     }
 
     @Override
-    public Object visitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx) {
-        return super.visitVariableDeclarationType(ctx);
+    public Node visitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        DataType type = (DataType) visit(ctx.type());
+        String id = ctx.CHARS().getText();
+        Expression expression = (Expression) visit(ctx.expr());
+        symbolTable.addKeyValue(id,expression);
+        return new VariableDeclaration(type,id,expression,lineNumber);
     }
 
     @Override
-    public Object visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) {
-        return super.visitVaraibleListDeclaration(ctx);
+    public Node visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) {
+        return(Node) super.visitVaraibleListDeclaration(ctx);
     }
 
     @Override
-    public Object visitList(Example1Parser.ListContext ctx) {
-        return super.visitList(ctx);
+    public Node visitList(Example1Parser.ListContext ctx) {
+        return (Node) super.visitList(ctx);
     }
 
     @Override
@@ -187,10 +190,24 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     String test = "0";
 
 
-
-
-
-
+    @Override
+    public DataType visitType(Example1Parser.TypeContext ctx) {
+        String type = ctx.getChild(0).getText();
+        DataType type1 = null;
+        switch (type)
+        {
+            case "int" : type1 = DataType.Integer;
+            break;
+            case "string" : type1 = DataType.String;
+            break;
+            case "Boolean" : type1 = DataType.Boolean;
+            break;
+            case  "var" : type1 = DataType.Var;
+            break;
+            default:break;
+        }
+        return type1;
+    }
 
 
 
@@ -376,7 +393,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.STYLE().getText();
         Node value = (Node) visit(ctx.style());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -414,7 +431,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.COLOR().getText();
         Node value = (Node) visit(ctx.color());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -424,8 +441,11 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.FONTSIZE().getText();
         Node value = (Node) visit(ctx.NUMBER());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
 }
+
+
+
