@@ -492,11 +492,19 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitImageProperties(Example1Parser.ImagePropertiesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * Visit a parse tree produced by the {@code ImageWidthHeight}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitImageProperty(Example1Parser.ImagePropertyContext ctx);
+	T visitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ImageColor}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImageColor(Example1Parser.ImageColorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#text}.
 	 * @param ctx the parse tree
@@ -642,11 +650,19 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#voidFunction}.
+	 * Visit a parse tree produced by the {@code CallFunction}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVoidFunction(Example1Parser.VoidFunctionContext ctx);
+	T visitCallFunction(Example1Parser.CallFunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FunctionBlock}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionBlock(Example1Parser.FunctionBlockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#center}.
 	 * @param ctx the parse tree

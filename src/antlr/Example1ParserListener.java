@@ -824,15 +824,29 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitImageProperties(Example1Parser.ImagePropertiesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * Enter a parse tree produced by the {@code ImageWidthHeight}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterImageProperty(Example1Parser.ImagePropertyContext ctx);
+	void enterImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#imageProperty}.
+	 * Exit a parse tree produced by the {@code ImageWidthHeight}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitImageProperty(Example1Parser.ImagePropertyContext ctx);
+	void exitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ImageColor}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterImageColor(Example1Parser.ImageColorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ImageColor}
+	 * labeled alternative in {@link Example1Parser#imageProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitImageColor(Example1Parser.ImageColorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#text}.
 	 * @param ctx the parse tree
@@ -1076,15 +1090,29 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#voidFunction}.
+	 * Enter a parse tree produced by the {@code CallFunction}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
 	 * @param ctx the parse tree
 	 */
-	void enterVoidFunction(Example1Parser.VoidFunctionContext ctx);
+	void enterCallFunction(Example1Parser.CallFunctionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#voidFunction}.
+	 * Exit a parse tree produced by the {@code CallFunction}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
 	 * @param ctx the parse tree
 	 */
-	void exitVoidFunction(Example1Parser.VoidFunctionContext ctx);
+	void exitCallFunction(Example1Parser.CallFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FunctionBlock}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionBlock(Example1Parser.FunctionBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionBlock}
+	 * labeled alternative in {@link Example1Parser#voidFunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionBlock(Example1Parser.FunctionBlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#center}.
 	 * @param ctx the parse tree

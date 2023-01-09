@@ -893,13 +893,25 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterImageProperty(Example1Parser.ImagePropertyContext ctx) { }
+	@Override public void enterImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitImageProperty(Example1Parser.ImagePropertyContext ctx) { }
+	@Override public void exitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterImageColor(Example1Parser.ImageColorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImageColor(Example1Parser.ImageColorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1181,13 +1193,25 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVoidFunction(Example1Parser.VoidFunctionContext ctx) { }
+	@Override public void enterCallFunction(Example1Parser.CallFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVoidFunction(Example1Parser.VoidFunctionContext ctx) { }
+	@Override public void exitCallFunction(Example1Parser.CallFunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionBlock(Example1Parser.FunctionBlockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionBlock(Example1Parser.FunctionBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

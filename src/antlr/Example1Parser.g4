@@ -89,8 +89,7 @@ minus_one
     : CHARS MINUSS
     ;
 fast_math
-    :  CHARS (SUM_EQUAL|MINUS_EQUAL|DIVID_EQUAL|MULTIPLY_EQUAL)
-       (CHARS  | NUMBER)
+    :  CHARS (SUM_EQUAL|MINUS_EQUAL|DIVID_EQUAL|MULTIPLY_EQUAL) NUMBER
     ;
 for_statement_adding_one
     :  CHARS SUMS
@@ -182,9 +181,9 @@ imageProperties
     : STRING_EXP (COMMA imageProperty)* COMMA?
     ;
 imageProperty
-    : WIDTH C NUMBER
-    | HEIGHT C NUMBER
-    | COLOR C color
+    : WIDTH C NUMBER            #ImageWidthHeight
+    | HEIGHT C NUMBER           #ImageWidthHeight
+    | COLOR C color             #ImageColor
     ;
 
 text
@@ -238,7 +237,7 @@ containerProperties
     : containerProperty (COMMA containerProperty)* COMMA?
     ;
 containerProperty
-    : COLOR C color         #ContainerKeyValue
+    : COLOR C color             #ContainerKeyValue
     | WIDTH C NUMBER            #ContainerWidthHeight
     | HEIGHT C NUMBER           #ContainerWidthHeight
     | CHILD C widget            #ContainerKeyValue
@@ -260,8 +259,8 @@ e_ButtonProperty
     | CHILD C widget
     ;
 voidFunction
-    : CHARS OPENTEXT CLOSETEXT
-    | OPENTEXT CLOSETEXT block
+    : CHARS OPENTEXT CLOSETEXT      #CallFunction
+    | OPENTEXT CLOSETEXT block      #FunctionBlock
     ;
 center
     : CENTER OPENTEXT centerWidgetArgs CLOSETEXT
