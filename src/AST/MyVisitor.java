@@ -108,7 +108,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     //Expression
-    //Abeer & Shaza
     @Override
     public Node visitBoolExp(Example1Parser.BoolExpContext ctx) {
         int lineNumber = ctx.getStart().getLine();
@@ -183,8 +182,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     // type
-    String test = "0";
-
 
     @Override
     public DataType visitType(Example1Parser.TypeContext ctx) {
@@ -211,7 +208,166 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     //Code Attributes
-    String test1 = "0";
+
+    @Override
+    public Object visitFor_statement(Example1Parser.For_statementContext ctx) {
+        return super.visitFor_statement(ctx);
+    }
+
+    @Override
+    public Object visitFor_first_part(Example1Parser.For_first_partContext ctx) {
+        return super.visitFor_first_part(ctx);
+    }
+
+    @Override
+    public Object visitFor_secomd_part(Example1Parser.For_secomd_partContext ctx) {
+        return super.visitFor_secomd_part(ctx);
+    }
+
+//    @Override
+//    public Node visitBlock(Example1Parser.BlockContext ctx) {
+//        return super.visitBlock(ctx);
+//    }
+
+    @Override
+    public Object visitForStatementNumber(Example1Parser.ForStatementNumberContext ctx) {
+        return super.visitForStatementNumber(ctx);
+    }
+
+    @Override
+    public Object visitForStatementPlus(Example1Parser.ForStatementPlusContext ctx) {
+        return super.visitForStatementPlus(ctx);
+    }
+
+    @Override
+    public Object visitForStatementMinus(Example1Parser.ForStatementMinusContext ctx) {
+        return super.visitForStatementMinus(ctx);
+    }
+
+    @Override
+    public Object visitForStatementFastMatch(Example1Parser.ForStatementFastMatchContext ctx) {
+        return super.visitForStatementFastMatch(ctx);
+    }
+
+    @Override
+    public Object visitFor_statement_adding_one(Example1Parser.For_statement_adding_oneContext ctx) {
+        return super.visitFor_statement_adding_one(ctx);
+    }
+
+    @Override
+    public Object visitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx) {
+        return super.visitFor_statement_minuss_one(ctx);
+    }
+
+    @Override
+    public Object visitNumber_attribute(Example1Parser.Number_attributeContext ctx) {
+        return super.visitNumber_attribute(ctx);
+    }
+
+    @Override
+    public Object visitVariableDeclaration(Example1Parser.VariableDeclarationContext ctx) {
+        return super.visitVariableDeclaration(ctx);
+    }
+
+    @Override
+    public Object visitPrintCodeAttributes(Example1Parser.PrintCodeAttributesContext ctx) {
+        return super.visitPrintCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitIfCodeAttributes(Example1Parser.IfCodeAttributesContext ctx) {
+        return super.visitIfCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitElseCodeAttributes(Example1Parser.ElseCodeAttributesContext ctx) {
+        return super.visitElseCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitForCodeAttributes(Example1Parser.ForCodeAttributesContext ctx) {
+        return super.visitForCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitWhileStatements(Example1Parser.WhileStatementsContext ctx) {
+        return super.visitWhileStatements(ctx);
+    }
+
+    @Override
+    public Object visitAssignmentCodeAttributes(Example1Parser.AssignmentCodeAttributesContext ctx) {
+        return super.visitAssignmentCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitCallCodeAttributes(Example1Parser.CallCodeAttributesContext ctx) {
+        return super.visitCallCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitBreakCodeAttributes(Example1Parser.BreakCodeAttributesContext ctx) {
+        return super.visitBreakCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitReturnCodeAttributes(Example1Parser.ReturnCodeAttributesContext ctx) {
+        return super.visitReturnCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitCodeAttributes(Example1Parser.CodeAttributesContext ctx) {
+        return super.visitCodeAttributes(ctx);
+    }
+
+    @Override
+    public Object visitElse_statment(Example1Parser.Else_statmentContext ctx) {
+        return super.visitElse_statment(ctx);
+    }
+
+    @Override
+    public Object visitOperation_if(Example1Parser.Operation_ifContext ctx) {
+        return super.visitOperation_if(ctx);
+    }
+
+    @Override
+    public Object visitWhile_statment(Example1Parser.While_statmentContext ctx) {
+        return super.visitWhile_statment(ctx);
+    }
+
+    @Override
+    public Object visitIf_statment(Example1Parser.If_statmentContext ctx) {
+        return super.visitIf_statment(ctx);
+    }
+
+    @Override
+    public Object visitElse_if_statements(Example1Parser.Else_if_statementsContext ctx) {
+        return super.visitElse_if_statements(ctx);
+    }
+
+    @Override
+    public Object visitIfPartOperation(Example1Parser.IfPartOperationContext ctx) {
+        return super.visitIfPartOperation(ctx);
+    }
+
+    @Override
+    public Object visitCharsExpression(Example1Parser.CharsExpressionContext ctx) {
+        return super.visitCharsExpression(ctx);
+    }
+
+    @Override
+    public Object visitSingleExpression(Example1Parser.SingleExpressionContext ctx) {
+        return super.visitSingleExpression(ctx);
+    }
+
+    @Override
+    public Object visitAssignment(Example1Parser.AssignmentContext ctx) {
+        return super.visitAssignment(ctx);
+    }
+
+    @Override
+    public Object visitPrint_statements(Example1Parser.Print_statementsContext ctx) {
+        return super.visitPrint_statements(ctx);
+    }
 
 
     //Widgets
@@ -427,7 +583,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return textStyleArgs;
     }
 
-    ///TODO: check this
     @Override
     public KeyValueWidget visitColorKeyValue(Example1Parser.ColorKeyValueContext ctx) {
         int lineNumber = ctx.getStart().getLine();
