@@ -445,6 +445,118 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
+
+
+
+
+
+
+
+
+
+
+
+    //ELEVATED
+
+
+    @Override
+    public Object visitE_button(Example1Parser.E_buttonContext ctx) {
+//        String widgetName = ctx.SCAFFOLD().getText();
+//        int lineNumber = ctx.getStart().getLine();
+//        List<KeyValueWidget> scaffoldArgs = new ArrayList<>();
+//        if(ctx.scaffoldArgs() != null){
+//            scaffoldArgs = visitScaffoldArgs(ctx.scaffoldArgs());
+//        }
+//        Widget scaffoldWidget = new Widget(widgetName, scaffoldArgs, lineNumber);
+//        for(int i = 0; i < scaffoldWidget.widgetProperties.size(); i++){
+//            if(i != scaffoldWidget.widgetProperties.size() - 1){
+//                scaffoldWidget.widgetProperties.get(i).sibling = scaffoldWidget.widgetProperties.get(i + 1);
+//            }
+//            scaffoldWidget.widgetProperties.get(i).parent = scaffoldWidget;
+//        }
+//        return scaffoldWidget;
+        return super.visitE_button(ctx);
+    }
+
+    @Override
+    public Object visitE_buttonProperties(Example1Parser.E_buttonPropertiesContext ctx) {
+        return super.visitE_buttonProperties(ctx);
+    }
+
+    @Override
+    public Object visitE_ButtonProperty(Example1Parser.E_ButtonPropertyContext ctx) {
+        return super.visitE_ButtonProperty(ctx);
+    }
+
+    @Override
+    public Object visitCallFunction(Example1Parser.CallFunctionContext ctx) {
+        return super.visitCallFunction(ctx);
+    }
+
+    @Override
+    public Object visitFunctionBlock(Example1Parser.FunctionBlockContext ctx) {
+        return super.visitFunctionBlock(ctx);
+    }
+
+    @Override
+    public Object visitCenter(Example1Parser.CenterContext ctx) {
+        return super.visitCenter(ctx);
+    }
+
+    @Override
+    public Object visitCenterWidgetArgs(Example1Parser.CenterWidgetArgsContext ctx) {
+        return super.visitCenterWidgetArgs(ctx);
+    }
+
+
+
+
+
+
+
+
+    //Column and Row
+
+
+    @Override
+    public Object visitRow(Example1Parser.RowContext ctx) {
+        return super.visitRow(ctx);
+    }
+
+    @Override
+    public Object visitRowColumnArgs(Example1Parser.RowColumnArgsContext ctx) {
+        return super.visitRowColumnArgs(ctx);
+    }
+
+    @Override
+    public Object visitColumn(Example1Parser.ColumnContext ctx) {
+        return super.visitColumn(ctx);
+    }
+
+    @Override
+    public Object visitColumnKeyValue(Example1Parser.ColumnKeyValueContext ctx) {
+        return super.visitColumnKeyValue(ctx);
+    }
+
+    @Override
+    public Object visitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) {
+        return super.visitColumnWidgetList(ctx);
+    }
+
+    @Override
+    public Object visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) {
+        return super.visitMainAxisAlignment(ctx);
+    }
+
+    @Override
+    public Object visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) {
+        return super.visitMainAxisSize(ctx);
+    }
+
+    @Override
+    public Object visitWidgetList(Example1Parser.WidgetListContext ctx) {
+        return super.visitWidgetList(ctx);
+    }
 }
 
 
