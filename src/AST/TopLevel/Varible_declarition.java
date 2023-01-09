@@ -1,6 +1,6 @@
 package AST.TopLevel;
 
-import AST.DataType;
+import AST.Node.DataType;
 import AST.Expression.Expression;
 import AST.Node.Node;
 
