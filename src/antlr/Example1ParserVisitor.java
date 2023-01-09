@@ -17,11 +17,33 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(Example1Parser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#topLevel}.
+	 * Visit a parse tree produced by the {@code VariableDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTopLevel(Example1Parser.TopLevelContext ctx);
+	T visitVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ClassDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClassDeclarationTopLevel(Example1Parser.ClassDeclarationTopLevelContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FunctionDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclarationTopLevel(Example1Parser.FunctionDeclarationTopLevelContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code WidgetDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#class_decl}.
 	 * @param ctx the parse tree
@@ -29,17 +51,33 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClass_decl(Example1Parser.Class_declContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#class_member}.
+	 * Visit a parse tree produced by the {@code VariableDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClass_member(Example1Parser.Class_memberContext ctx);
+	T visitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#variables_decl}.
+	 * Visit a parse tree produced by the {@code FunctionDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariables_decl(Example1Parser.Variables_declContext ctx);
+	T visitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VariableDeclarationType}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VaraibleListDeclaration}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#function}.
 	 * @param ctx the parse tree
@@ -131,20 +169,6 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMinusOne(Example1Parser.MinusOneContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Multiplication}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMultiplication(Example1Parser.MultiplicationContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddition(Example1Parser.AdditionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code Variable}
 	 * labeled alternative in {@link Example1Parser#expr}.
 	 * @param ctx the parse tree
@@ -166,19 +190,19 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStringExp(Example1Parser.StringExpContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code OperationExpression}
+	 * labeled alternative in {@link Example1Parser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperationExpression(Example1Parser.OperationExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code AddingOne}
 	 * labeled alternative in {@link Example1Parser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAddingOne(Example1Parser.AddingOneContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Division}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDivision(Example1Parser.DivisionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code FastMatch}
 	 * labeled alternative in {@link Example1Parser#expr}.
@@ -193,13 +217,6 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunctionCall(Example1Parser.FunctionCallContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Minus}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMinus(Example1Parser.MinusContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#fast_math}.
 	 * @param ctx the parse tree
@@ -344,11 +361,26 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElse_if_statements(Example1Parser.Else_if_statementsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#if_part}.
+	 * Visit a parse tree produced by the {@code IfPartOperation}
+	 * labeled alternative in {@link Example1Parser#if_part}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIf_part(Example1Parser.If_partContext ctx);
+	T visitIfPartOperation(Example1Parser.IfPartOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CharsExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCharsExpression(Example1Parser.CharsExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code SingleExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleExpression(Example1Parser.SingleExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#assignment}.
 	 * @param ctx the parse tree
@@ -374,11 +406,61 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitList_exp(Example1Parser.List_expContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Example1Parser#widget}.
+	 * Visit a parse tree produced by the {@code ScaffoldWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWidget(Example1Parser.WidgetContext ctx);
+	T visitScaffoldWidget(Example1Parser.ScaffoldWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ImageWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImageWidget(Example1Parser.ImageWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code TextWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextWidget(Example1Parser.TextWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ContainerWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitContainerWidget(Example1Parser.ContainerWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ColumnWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumnWidget(Example1Parser.ColumnWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RowWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRowWidget(Example1Parser.RowWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CenterWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCenterWidget(Example1Parser.CenterWidgetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ElevatedButtonWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#image}.
 	 * @param ctx the parse tree

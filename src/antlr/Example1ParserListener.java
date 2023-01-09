@@ -18,15 +18,53 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitProgram(Example1Parser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#topLevel}.
+	 * Enter a parse tree produced by the {@code VariableDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
 	 * @param ctx the parse tree
 	 */
-	void enterTopLevel(Example1Parser.TopLevelContext ctx);
+	void enterVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#topLevel}.
+	 * Exit a parse tree produced by the {@code VariableDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
 	 * @param ctx the parse tree
 	 */
-	void exitTopLevel(Example1Parser.TopLevelContext ctx);
+	void exitVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ClassDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclarationTopLevel(Example1Parser.ClassDeclarationTopLevelContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ClassDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclarationTopLevel(Example1Parser.ClassDeclarationTopLevelContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FunctionDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclarationTopLevel(Example1Parser.FunctionDeclarationTopLevelContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclarationTopLevel(Example1Parser.FunctionDeclarationTopLevelContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code WidgetDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void enterWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code WidgetDeclarationTopLevel}
+	 * labeled alternative in {@link Example1Parser#topLevel}.
+	 * @param ctx the parse tree
+	 */
+	void exitWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#class_decl}.
 	 * @param ctx the parse tree
@@ -38,25 +76,53 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitClass_decl(Example1Parser.Class_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#class_member}.
+	 * Enter a parse tree produced by the {@code VariableDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 */
-	void enterClass_member(Example1Parser.Class_memberContext ctx);
+	void enterVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#class_member}.
+	 * Exit a parse tree produced by the {@code VariableDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 */
-	void exitClass_member(Example1Parser.Class_memberContext ctx);
+	void exitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#variables_decl}.
+	 * Enter a parse tree produced by the {@code FunctionDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariables_decl(Example1Parser.Variables_declContext ctx);
+	void enterFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#variables_decl}.
+	 * Exit a parse tree produced by the {@code FunctionDeclarationClass}
+	 * labeled alternative in {@link Example1Parser#class_member}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariables_decl(Example1Parser.Variables_declContext ctx);
+	void exitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableDeclarationType}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableDeclarationType}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VaraibleListDeclaration}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VaraibleListDeclaration}
+	 * labeled alternative in {@link Example1Parser#variables_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#function}.
 	 * @param ctx the parse tree
@@ -210,30 +276,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitMinusOne(Example1Parser.MinusOneContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Multiplication}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMultiplication(Example1Parser.MultiplicationContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Multiplication}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMultiplication(Example1Parser.MultiplicationContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddition(Example1Parser.AdditionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddition(Example1Parser.AdditionContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code Variable}
 	 * labeled alternative in {@link Example1Parser#expr}.
 	 * @param ctx the parse tree
@@ -270,6 +312,18 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitStringExp(Example1Parser.StringExpContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code OperationExpression}
+	 * labeled alternative in {@link Example1Parser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperationExpression(Example1Parser.OperationExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code OperationExpression}
+	 * labeled alternative in {@link Example1Parser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperationExpression(Example1Parser.OperationExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code AddingOne}
 	 * labeled alternative in {@link Example1Parser#expr}.
 	 * @param ctx the parse tree
@@ -281,18 +335,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAddingOne(Example1Parser.AddingOneContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Division}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterDivision(Example1Parser.DivisionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Division}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitDivision(Example1Parser.DivisionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code FastMatch}
 	 * labeled alternative in {@link Example1Parser#expr}.
@@ -317,18 +359,6 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionCall(Example1Parser.FunctionCallContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Minus}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterMinus(Example1Parser.MinusContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Minus}
-	 * labeled alternative in {@link Example1Parser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitMinus(Example1Parser.MinusContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#fast_math}.
 	 * @param ctx the parse tree
@@ -572,15 +602,41 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitElse_if_statements(Example1Parser.Else_if_statementsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#if_part}.
+	 * Enter a parse tree produced by the {@code IfPartOperation}
+	 * labeled alternative in {@link Example1Parser#if_part}.
 	 * @param ctx the parse tree
 	 */
-	void enterIf_part(Example1Parser.If_partContext ctx);
+	void enterIfPartOperation(Example1Parser.IfPartOperationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#if_part}.
+	 * Exit a parse tree produced by the {@code IfPartOperation}
+	 * labeled alternative in {@link Example1Parser#if_part}.
 	 * @param ctx the parse tree
 	 */
-	void exitIf_part(Example1Parser.If_partContext ctx);
+	void exitIfPartOperation(Example1Parser.IfPartOperationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CharsExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 */
+	void enterCharsExpression(Example1Parser.CharsExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CharsExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 */
+	void exitCharsExpression(Example1Parser.CharsExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code SingleExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleExpression(Example1Parser.SingleExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code SingleExpression}
+	 * labeled alternative in {@link Example1Parser#if_part}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleExpression(Example1Parser.SingleExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#assignment}.
 	 * @param ctx the parse tree
@@ -622,15 +678,101 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitList_exp(Example1Parser.List_expContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Example1Parser#widget}.
+	 * Enter a parse tree produced by the {@code ScaffoldWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
 	 * @param ctx the parse tree
 	 */
-	void enterWidget(Example1Parser.WidgetContext ctx);
+	void enterScaffoldWidget(Example1Parser.ScaffoldWidgetContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Example1Parser#widget}.
+	 * Exit a parse tree produced by the {@code ScaffoldWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
 	 * @param ctx the parse tree
 	 */
-	void exitWidget(Example1Parser.WidgetContext ctx);
+	void exitScaffoldWidget(Example1Parser.ScaffoldWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ImageWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterImageWidget(Example1Parser.ImageWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ImageWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitImageWidget(Example1Parser.ImageWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TextWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextWidget(Example1Parser.TextWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TextWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextWidget(Example1Parser.TextWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ContainerWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterContainerWidget(Example1Parser.ContainerWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ContainerWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitContainerWidget(Example1Parser.ContainerWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ColumnWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterColumnWidget(Example1Parser.ColumnWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ColumnWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitColumnWidget(Example1Parser.ColumnWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code RowWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterRowWidget(Example1Parser.RowWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RowWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitRowWidget(Example1Parser.RowWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CenterWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterCenterWidget(Example1Parser.CenterWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CenterWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitCenterWidget(Example1Parser.CenterWidgetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ElevatedButtonWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void enterElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ElevatedButtonWidget}
+	 * labeled alternative in {@link Example1Parser#widget}.
+	 * @param ctx the parse tree
+	 */
+	void exitElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#image}.
 	 * @param ctx the parse tree

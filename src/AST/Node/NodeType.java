@@ -4,10 +4,6 @@ public enum NodeType {
     Statements,
     Widget,
     Expression,
-    VariableDeclareation,
-
-
-
-
-
+    VariableDeclaration,
+    ClassDeclaration,
 }

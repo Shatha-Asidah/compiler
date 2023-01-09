@@ -17,7 +17,6 @@ SUM: '+';
 DIVID: '/';
 MULTIPLY : '*';
 MINUS : '-';
-
 OPENTEXT: '(';
 CLOSETEXT: ')';
 SUMS : '++';

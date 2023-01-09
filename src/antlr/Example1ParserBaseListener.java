@@ -29,13 +29,49 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTopLevel(Example1Parser.TopLevelContext ctx) { }
+	@Override public void enterVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTopLevel(Example1Parser.TopLevelContext ctx) { }
+	@Override public void exitVariableDeclarationTopLevel(Example1Parser.VariableDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterClassDeclarationTopLevel(Example1Parser.ClassDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitClassDeclarationTopLevel(Example1Parser.ClassDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionDeclarationTopLevel(Example1Parser.FunctionDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionDeclarationTopLevel(Example1Parser.FunctionDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWidgetDeclarationTopLevel(Example1Parser.WidgetDeclarationTopLevelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -53,25 +89,49 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClass_member(Example1Parser.Class_memberContext ctx) { }
+	@Override public void enterVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClass_member(Example1Parser.Class_memberContext ctx) { }
+	@Override public void exitVariableDeclarationClass(Example1Parser.VariableDeclarationClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariables_decl(Example1Parser.Variables_declContext ctx) { }
+	@Override public void enterFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariables_decl(Example1Parser.Variables_declContext ctx) { }
+	@Override public void exitFunctionDeclarationClass(Example1Parser.FunctionDeclarationClassContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableDeclarationType(Example1Parser.VariableDeclarationTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVaraibleListDeclaration(Example1Parser.VaraibleListDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -245,30 +305,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplication(Example1Parser.MultiplicationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMultiplication(Example1Parser.MultiplicationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAddition(Example1Parser.AdditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddition(Example1Parser.AdditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVariable(Example1Parser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -305,6 +341,18 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOperationExpression(Example1Parser.OperationExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperationExpression(Example1Parser.OperationExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAddingOne(Example1Parser.AddingOneContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -312,18 +360,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAddingOne(Example1Parser.AddingOneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDivision(Example1Parser.DivisionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDivision(Example1Parser.DivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -348,18 +384,6 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunctionCall(Example1Parser.FunctionCallContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMinus(Example1Parser.MinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMinus(Example1Parser.MinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -629,13 +653,37 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_part(Example1Parser.If_partContext ctx) { }
+	@Override public void enterIfPartOperation(Example1Parser.IfPartOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_part(Example1Parser.If_partContext ctx) { }
+	@Override public void exitIfPartOperation(Example1Parser.IfPartOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCharsExpression(Example1Parser.CharsExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCharsExpression(Example1Parser.CharsExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSingleExpression(Example1Parser.SingleExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSingleExpression(Example1Parser.SingleExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -689,13 +737,97 @@ public class Example1ParserBaseListener implements Example1ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWidget(Example1Parser.WidgetContext ctx) { }
+	@Override public void enterScaffoldWidget(Example1Parser.ScaffoldWidgetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWidget(Example1Parser.WidgetContext ctx) { }
+	@Override public void exitScaffoldWidget(Example1Parser.ScaffoldWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterImageWidget(Example1Parser.ImageWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImageWidget(Example1Parser.ImageWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextWidget(Example1Parser.TextWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextWidget(Example1Parser.TextWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterContainerWidget(Example1Parser.ContainerWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitContainerWidget(Example1Parser.ContainerWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColumnWidget(Example1Parser.ColumnWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumnWidget(Example1Parser.ColumnWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRowWidget(Example1Parser.RowWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRowWidget(Example1Parser.RowWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCenterWidget(Example1Parser.CenterWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCenterWidget(Example1Parser.CenterWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElevatedButtonWidget(Example1Parser.ElevatedButtonWidgetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
