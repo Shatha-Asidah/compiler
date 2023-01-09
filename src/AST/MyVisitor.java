@@ -1,6 +1,7 @@
 package AST;
 
 import AST.Expression.BoolExpr;
+import AST.Expression.String_expr;
 import AST.Node.Node;
 import AST.TopLevel.ClassDeclaration;
 import AST.Widget.KeyValueWidget;
@@ -272,7 +273,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
         Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
@@ -280,30 +281,61 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     //Image
 
     @Override
-    public Object visitImage(Example1Parser.ImageContext ctx) {
-        return super.visitImage(ctx);
+    public Node visitImage(Example1Parser.ImageContext ctx) {
+        String widgetName = ctx.IMAGEASSETS().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> image = visitImageProperties(ctx.imageProperties());
+        Widget imageWidget = new Widget(widgetName, image, lineNumber);
+        for(int i = 0; i < imageWidget.widgetProperties.size(); i++){
+            if(i != imageWidget.widgetProperties.size() - 1){
+                imageWidget.widgetProperties.get(i).sibling = imageWidget.widgetProperties.get(i + 1);
+            }
+            imageWidget.widgetProperties.get(i).parent = imageWidget;
+        }
+        return imageWidget;
     }
 
     @Override
-    public Object visitImageProperties(Example1Parser.ImagePropertiesContext ctx) {
-        return super.visitImageProperties(ctx);
+    public List<KeyValueWidget> visitImageProperties(Example1Parser.ImagePropertiesContext ctx) {
+        String string_exp = ctx.STRING_EXP().getText();
+        int lineNumber = ctx.getStart().getLine();
+        Node string_expr = new String_expr(string_exp,lineNumber);
+        KeyValueWidget key = new KeyValueWidget("data",string_expr,lineNumber);
+        List<KeyValueWidget> image = new ArrayList<>();
+        image.add(key);
+        if(ctx.imageProperty()!=null) {
+            for (int i = 0; i < ctx.imageProperty().size(); i++) {
+                KeyValueWidget keyValueWidget =(KeyValueWidget) visit(ctx.imageProperty().get(i));
+                image.add(keyValueWidget);
+            }
+        }
+        return image;
     }
 
     @Override
-    public Object visitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx) {
-        return super.visitImageWidthHeight(ctx);
+    public KeyValueWidget visitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
+
     }
 
     @Override
-    public Object visitImageColor(Example1Parser.ImageColorContext ctx) {
-        return super.visitImageColor(ctx);
+    public KeyValueWidget visitImageColor(Example1Parser.ImageColorContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value,lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
 
 
     //Text
-
-
     @Override
     public Object visitText(Example1Parser.TextContext ctx) {
         return super.visitText(ctx);
