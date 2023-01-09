@@ -1,11 +1,16 @@
 package AST;
 
 import AST.Expression.BoolExpr;
+<<<<<<< HEAD
 import AST.Expression.String_expr;
+=======
+import AST.Expression.FunctionCall;
+>>>>>>> f26f6eff6f7efc9b5df5d5c5319c1ede1d793e20
 import AST.Node.Node;
 import AST.TopLevel.ClassDeclaration;
 import AST.Widget.KeyValueWidget;
 import AST.Widget.Widget;
+import AST.*;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
@@ -154,7 +159,11 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     @Override
     public Object visitCall_function(Example1Parser.Call_functionContext ctx) {
-        return super.visitCall_function(ctx);
+
+        int lineNumber = ctx.getStart().getLine();
+        String call_name = ctx.CHARS().getText();
+        return new FunctionCall(call_name, lineNumber);
+
     }
 
     @Override
@@ -337,37 +346,86 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     //Text
     @Override
-    public Object visitText(Example1Parser.TextContext ctx) {
-        return super.visitText(ctx);
+    public Node visitText(Example1Parser.TextContext ctx) {
+        String widgetName = ctx.TEXT().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> textArgs = new ArrayList<>();
+        if(ctx.textProperties() != null){
+            textArgs = visitTextProperties(ctx.textProperties());
+        }
+        Widget textWidget = new Widget(widgetName, textArgs, lineNumber);
+        for(int i = 0; i < textWidget.widgetProperties.size(); i++){
+            if(i != textWidget.widgetProperties.size() - 1){
+                textWidget.widgetProperties.get(i).sibling = textWidget.widgetProperties.get(i + 1);
+            }
+            textWidget.widgetProperties.get(i).parent = textWidget;
+        }
+        return textWidget;
+    }
+    ///TODO: not complete
+    @Override
+    public List<KeyValueWidget> visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
+        List<KeyValueWidget> textArgs = new ArrayList<>();
+        KeyValueWidget keyValueWidget = visitTextProperty(ctx.textProperty());
+        textArgs.add(keyValueWidget);
+        return textArgs;
     }
 
     @Override
-    public Object visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
-        return super.visitTextProperties(ctx);
+    public KeyValueWidget visitTextProperty(Example1Parser.TextPropertyContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.STYLE().getText();
+        Node value = (Node) visit(ctx.style());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override
-    public Object visitTextProperty(Example1Parser.TextPropertyContext ctx) {
-        return super.visitTextProperty(ctx);
+    public Node visitStyle(Example1Parser.StyleContext ctx) {
+        String widgetName = ctx.TEXTSTYLE().getText();
+        int lineNumber = ctx.getStart().getLine();
+        List<KeyValueWidget> styleArgs = new ArrayList<>();
+        if(ctx.textStyleProprties() != null){
+            styleArgs = visitTextStyleProprties(ctx.textStyleProprties());
+        }
+        Widget textStyleWidget = new Widget(widgetName, styleArgs, lineNumber);
+        for(int i = 0; i < textStyleWidget.widgetProperties.size(); i++){
+            if(i != textStyleWidget.widgetProperties.size() - 1){
+                textStyleWidget.widgetProperties.get(i).sibling = textStyleWidget.widgetProperties.get(i + 1);
+            }
+            textStyleWidget.widgetProperties.get(i).parent = textStyleWidget;
+        }
+        return textStyleWidget;
     }
 
     @Override
-    public Object visitStyle(Example1Parser.StyleContext ctx) {
-        return super.visitStyle(ctx);
+    public List<KeyValueWidget> visitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx) {
+        List<KeyValueWidget> textStyleArgs = new ArrayList<>();
+        for(int i = 0; i < ctx.textStyleProprty().size(); i++){
+            KeyValueWidget keyValueWidget = (KeyValueWidget) visit(ctx.textStyleProprty().get(i));
+            textStyleArgs.add(keyValueWidget);
+        }
+        return textStyleArgs;
+    }
+    ///TODO: check this
+    @Override
+    public KeyValueWidget visitColorKeyValue(Example1Parser.ColorKeyValueContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.COLOR().getText();
+        Node value = (Node) visit(ctx.color());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override
-    public Object visitTextStyleProprties(Example1Parser.TextStyleProprtiesContext ctx) {
-        return super.visitTextStyleProprties(ctx);
-    }
-
-    @Override
-    public Object visitColorKeyValue(Example1Parser.ColorKeyValueContext ctx) {
-        return super.visitColorKeyValue(ctx);
-    }
-
-    @Override
-    public Object visitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx) {
-        return super.visitFontSizeKeyValue(ctx);
+    public KeyValueWidget visitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.FONTSIZE().getText();
+        Node value = (Node) visit(ctx.NUMBER());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 }

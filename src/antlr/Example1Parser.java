@@ -644,7 +644,9 @@ public class Example1Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ListContext extends ParserRuleContext {
-		public TerminalNode LIST() { return getToken(Example1Parser.LIST, 0); }
+        public ParseTree type;
+
+        public TerminalNode LIST() { return getToken(Example1Parser.LIST, 0); }
 		public TerminalNode TAG_OPEN() { return getToken(Example1Parser.TAG_OPEN, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
