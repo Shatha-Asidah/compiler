@@ -13,6 +13,7 @@ public class ListExpression extends Node {
     }
 
     public void addExpression(Expression expression){
+
         this.expressions.add(expression);
     }
 

@@ -17,10 +17,12 @@ class_member
     : variables_decl        #VariableDeclarationClass
     | function              #FunctionDeclarationClass
     ;
+
 variables_decl
     : type CHARS EQUAL expr SEMICOLON       #VariableDeclarationType
     | list                                  #VaraibleListDeclaration
     ;
+
 list
     : LIST TAG_OPEN type TAG_CLOSE
         CHARS EQUAL OB list_exp? CB SEMICOLON
@@ -28,6 +30,9 @@ list
 list_exp
     : expr (COMMA expr)*
     ;
+
+
+
 function
     : (VOID| type) CHARS
        OPENTEXT function_parameters? CLOSETEXT
