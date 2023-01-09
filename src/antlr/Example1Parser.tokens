@@ -74,7 +74,6 @@ CENTER=73
 NUMBER=74
 CHARS=75
 STRING_EXP=76
-ID=77
 'var'=1
 'int'=2
 ':'=4

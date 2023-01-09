@@ -416,11 +416,23 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitContainer(Example1Parser.ContainerContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Example1Parser#container_att}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitContainer_att(Example1Parser.Container_attContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#scaffold}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitScaffold(Example1Parser.ScaffoldContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Example1Parser#body}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBody(Example1Parser.BodyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Example1Parser#color}.
 	 * @param ctx the parse tree

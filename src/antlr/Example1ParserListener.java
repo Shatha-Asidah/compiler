@@ -692,6 +692,16 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitContainer(Example1Parser.ContainerContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Example1Parser#container_att}.
+	 * @param ctx the parse tree
+	 */
+	void enterContainer_att(Example1Parser.Container_attContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#container_att}.
+	 * @param ctx the parse tree
+	 */
+	void exitContainer_att(Example1Parser.Container_attContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#scaffold}.
 	 * @param ctx the parse tree
 	 */
@@ -701,6 +711,16 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitScaffold(Example1Parser.ScaffoldContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Example1Parser#body}.
+	 * @param ctx the parse tree
+	 */
+	void enterBody(Example1Parser.BodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Example1Parser#body}.
+	 * @param ctx the parse tree
+	 */
+	void exitBody(Example1Parser.BodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Example1Parser#color}.
 	 * @param ctx the parse tree

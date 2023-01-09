@@ -1,12 +1,8 @@
 package AST.TopLevel;
 
-import AST.DataType;
-import AST.Expression.Expression;
 import AST.Expression.ListExpression;
+import AST.Node.DataType;
 import AST.Node.Node;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ListDeclaration extends Node {
     DataType type;
@@ -19,9 +15,9 @@ public class ListDeclaration extends Node {
 
     @Override
     public String toString() {
-        return "ListDeclaration{" +
+        return "ListDeclaration{\n" +
                 "type=" + type +
                 ", listExpression=" + listExpression +
-                '}';
+                "\n}";
     }
 }
