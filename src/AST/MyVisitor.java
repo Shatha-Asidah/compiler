@@ -380,7 +380,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         }
         return textWidget;
     }
-    ///TODO: not complete
+    //TODO: not complete
     @Override
     public List<KeyValueWidget> visitTextProperties(Example1Parser.TextPropertiesContext ctx) {
         List<KeyValueWidget> textArgs = new ArrayList<>();
@@ -501,15 +501,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
 
-
-
-
-
-
-
-
-
-
     //ELEVATED
 
 
@@ -562,20 +553,18 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return super.visitCenterWidgetArgs(ctx);
     }
 
-
-
-
-
-
+    @Override
+    public Node visitColor(Example1Parser.ColorContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String color = ctx.CHARS().getText();
+        String_expr color_exp = new String_expr(color,lineNumber);
+        return color_exp;
+    }
 
 
     //Column and Row
 
 
-    @Override
-    public Object visitRow(Example1Parser.RowContext ctx) {
-        return super.visitRow(ctx);
-    }
 
 
 
