@@ -7,8 +7,8 @@ public class Main {
         System.out.println("test1");
         System.out.println("test2");
 
-
-
+        //ddfdf
+        System.out.println("test2");
 
     }
 }
