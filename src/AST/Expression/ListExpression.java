@@ -1,8 +1,7 @@
 package AST.Expression;
 
-import AST.Node.Node;
+
 import AST.Node.NodeType;
-//import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,7 @@ public class ListExpression extends Expression {
     public List<Expression> expressions;
 
     public ListExpression(int lineNumber) {
-        this.expressions =  new ArrayList<>();;
+        this.expressions =  new ArrayList<>();
         this.lineNumber = lineNumber;
         this.nodeName = "ListExpression";
         this.nodeType = NodeType.Expression;
