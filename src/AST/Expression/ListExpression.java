@@ -12,7 +12,7 @@ public class ListExpression extends Node {
     public ListExpression() {
 //        this.lineNumber = lineNumber;
         this.nodeName = "ListExpression";
-        this.nodeType = NodeType.ListExpression;
+        this.nodeType = NodeType.Expression;
         this.expressions =  new ArrayList<>();;
     }
 

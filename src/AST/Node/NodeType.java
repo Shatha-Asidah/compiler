@@ -7,4 +7,5 @@ public enum NodeType {
     VariableDeclaration,
     ClassDeclaration,
     FunctionDecleration,
+    ListDeclaration,
 }
