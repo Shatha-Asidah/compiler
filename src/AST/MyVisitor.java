@@ -4,10 +4,12 @@ import AST.Expression.*;
 import AST.Expression.String_expr;
 import AST.Node.DataType;
 import AST.Node.Node;
+import AST.Statement.Block;
 import AST.TopLevel.ClassDeclaration;
 import AST.TopLevel.VariableDeclaration;
 import AST.Widget.KeyValueWidget;
 import AST.Widget.Widget;
+import AST.Widget.WidgetFunction;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
@@ -85,8 +87,8 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitList_exp(Example1Parser.List_expContext ctx) {
-        return super.visitList_exp(ctx);
+    public Node visitList_exp(Example1Parser.List_expContext ctx) {
+        return (Node) super.visitList_exp(ctx);
     }
 
     //Class Declaration
@@ -700,13 +702,17 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     ///TODO: esmaeel
     @Override
-    public Object visitCallFunction(Example1Parser.CallFunctionContext ctx) {
-        return super.visitCallFunction(ctx);
+    public Node visitCallFunction(Example1Parser.CallFunctionContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String id = ctx.CHARS().getText();
+        return new FunctionCall(id,lineNumber);
     }
 
     @Override
-    public Object visitFunctionBlock(Example1Parser.FunctionBlockContext ctx) {
-        return super.visitFunctionBlock(ctx);
+    public Node visitFunctionBlock(Example1Parser.FunctionBlockContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        Block block = new Block();
+        return new WidgetFunction(block,lineNumber);
     }
 
     @Override
