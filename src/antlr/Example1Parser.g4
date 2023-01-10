@@ -50,7 +50,7 @@ for_statement
     for_statement_variable_number CLOSETEXT  block
     ;
 for_first_part
-    :   CHARS  EQUAL  NUMBER
+    :   CHARS  EQUAL NUMBER
     ;
 for_secomd_part
     : CHARS operation_if (CHARS | CHARS DOT LENGTH| NUMBER)

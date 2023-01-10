@@ -8,6 +8,7 @@ public class AddingOne extends Expression {
 
     public AddingOne(String variable1 , int lineNumber) {
         this.Variable1 = variable1;
+
         this.nodeName = "AddingOne Expression";
         this.nodeType = NodeType.Expression;
         this.lineNumber = lineNumber;
@@ -19,6 +20,7 @@ public class AddingOne extends Expression {
     public String toString() {
         return "AddingOne{" +
                 "Variable1='" + Variable1 + '\'' +
+
                 '}';
     }
 }

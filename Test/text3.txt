@@ -1,0 +1,60 @@
+
+Scaffold(
+      body: Container(
+        child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.assets(
+                "assets_images_compiler_jpg",
+              ),
+              Text("Hello From The Other Side",
+                  style: TextStyle(
+                    color: red,
+                    fontSize: 20,
+                  ))
+            ],
+          ),
+          Column(
+            children: [
+             ElevatedButton(
+                      onPressed: (){},
+                      color :  red,
+                      cild: Image.assets(
+                "assets_images_compiler_jpg",
+              ),
+              Text("Hello Ist ME",
+                  style: TextStyle(
+                    color: red,
+                    fontSize: 20,
+                  )),)
+                ElevatedButton(
+                         onPressed: (){},
+                         color :  red,
+                         cild:  Image.assets(
+                "assets_images_compiler_jpg",
+              ),
+              Text("Hello, Can You Hear ME",
+                  style: TextStyle(
+                    color: red,
+                    fontSize: 20,
+                  )),)
+                 ElevatedButton(
+                          onPressed: (){},
+                          color :  red,
+                          cild: Image.assets(
+                "assets_images_compiler_jpg",
+              ),
+              Text("Hello World",
+                  style: TextStyle(
+                    color: red,
+                    fontSize: 20,
+                  )))
+            ],
+          )
+        ],
+      ),,
+      )
+    );

@@ -4,6 +4,9 @@ import AST.Expression.*;
 import AST.Node.DataType;
 import AST.Node.Node;
 import AST.Statement.Block;
+import AST.Statement.ForStatementMinus;
+import AST.Statement.ForStatementNumber;
+import AST.Statement.ForStatementPlus;
 import AST.TopLevel.ClassDeclaration;
 import AST.TopLevel.Function;
 import AST.TopLevel.FunctionParameter;
@@ -15,6 +18,7 @@ import AST.Widget.WidgetList;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -286,20 +290,31 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     //Code Attributes
 
-    ///TODO: blkes 215 -> 324
+    ///TODO: belkees 215 -> 324
     @Override
     public Object visitFor_statement(Example1Parser.For_statementContext ctx) {
+
         return super.visitFor_statement(ctx);
     }
 
     @Override
-    public Object visitFor_first_part(Example1Parser.For_first_partContext ctx) {
-        return super.visitFor_first_part(ctx);
+    public Expression visitFor_first_part(Example1Parser.For_first_partContext ctx) {
+       int lineNumber = ctx.getStart().getLine();
+        String id = ctx.CHARS().getText();
+        int number = Integer.parseInt(ctx.NUMBER().getText());
+        For_First_Part for_first_part = new For_First_Part(id,number,lineNumber);
+        return for_first_part;
+
     }
 
     @Override
-    public Object visitFor_secomd_part(Example1Parser.For_secomd_partContext ctx) {
-        return super.visitFor_secomd_part(ctx);
+    public Expression visitFor_secomd_part(Example1Parser.For_secomd_partContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String value1 = ctx.CHARS(0).getText();
+        Operation_if operation_if = (Operation_if) visit(ctx.operation_if());
+        String value2 = ctx.getChild(2).getText();
+        For_Second_Part for_second_part = new For_Second_Part(value1,operation_if,value2,lineNumber);
+        return for_second_part;
     }
 
 //    @Override
@@ -308,38 +323,54 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 //    }
 
     @Override
-    public Object visitForStatementNumber(Example1Parser.ForStatementNumberContext ctx) {
-        return super.visitForStatementNumber(ctx);
+    public Node visitForStatementNumber(Example1Parser.ForStatementNumberContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String char1 = ctx.getChild(1).getText();
+        number_attribute number_attribute = (number_attribute) visit(ctx.number_attribute());
+        String char2 = ctx.getChild(2).getText();
+        ForStatementNumber forStatementNumber = new ForStatementNumber(char1,number_attribute,char2,lineNumber);
+        return forStatementNumber;
     }
 
     @Override
-    public Object visitForStatementPlus(Example1Parser.ForStatementPlusContext ctx) {
-        return super.visitForStatementPlus(ctx);
+    public Node visitForStatementPlus(Example1Parser.ForStatementPlusContext ctx) {
+        return (ForStatementPlus) visit(ctx.for_statement_adding_one());
     }
 
     @Override
-    public Object visitForStatementMinus(Example1Parser.ForStatementMinusContext ctx) {
-        return super.visitForStatementMinus(ctx);
+    public Node visitForStatementMinus(Example1Parser.ForStatementMinusContext ctx) {
+        return (ForStatementMinus) visit(ctx.for_statement_minuss_one());
     }
 
     @Override
-    public Object visitForStatementFastMatch(Example1Parser.ForStatementFastMatchContext ctx) {
-        return super.visitForStatementFastMatch(ctx);
+    public Expression visitForStatementFastMatch(Example1Parser.ForStatementFastMatchContext ctx) {
+        return (FastMath) visit(ctx.fast_math());
     }
 
     @Override
-    public Object visitFor_statement_adding_one(Example1Parser.For_statement_adding_oneContext ctx) {
-        return super.visitFor_statement_adding_one(ctx);
+    public Expression visitFor_statement_adding_one(Example1Parser.For_statement_adding_oneContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ctx.getChild(0).getText());
+        stringBuilder.append(ctx.getChild(1).getText());
+        return new AddingOne(stringBuilder.toString(),lineNumber);
+   }
+
+    @Override
+    public Expression visitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ctx.getChild(0).getText());
+        stringBuilder.append(ctx.getChild(1).getText());
+        return new MinusOne(stringBuilder.toString(),lineNumber);
     }
 
     @Override
-    public Object visitFor_statement_minuss_one(Example1Parser.For_statement_minuss_oneContext ctx) {
-        return super.visitFor_statement_minuss_one(ctx);
-    }
-
-    @Override
-    public Object visitNumber_attribute(Example1Parser.Number_attributeContext ctx) {
-        return super.visitNumber_attribute(ctx);
+    public Expression visitNumber_attribute(Example1Parser.Number_attributeContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String att = ctx.getChild(0).getText();
+        number_attribute number_attribute = new number_attribute(att,lineNumber);
+        return number_attribute;
     }
 
     @Override
@@ -402,7 +433,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public Object visitElse_statment(Example1Parser.Else_statmentContext ctx) {
         return super.visitElse_statment(ctx);
     }
-
+///////////////////
     @Override
     public Object visitOperation_if(Example1Parser.Operation_ifContext ctx) {
         return super.visitOperation_if(ctx);
