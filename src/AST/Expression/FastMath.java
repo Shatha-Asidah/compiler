@@ -3,7 +3,8 @@ package AST.Expression;
 import AST.Node.NodeType;
 
 public class FastMath extends Expression {
-    String name, operation;
+    String name;
+    String operation;
     int number;
 
     public FastMath(String name, String operation, int number,int lineNumber) {

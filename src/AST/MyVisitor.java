@@ -171,43 +171,54 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitMinusOne(Example1Parser.MinusOneContext ctx) {
-        return super.visitMinusOne(ctx);
+    public Node visitMinusOne(Example1Parser.MinusOneContext ctx) {
+        return (Node) visitMinus_one(ctx.minus_one());
     }
 
     @Override
-    public Object visitVariable(Example1Parser.VariableContext ctx) {
-        return super.visitVariable(ctx);
+    public Node visitVariable(Example1Parser.VariableContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String variable = ctx.CHARS().getText();
+        return  new Variable_expr(variable,lineNumber);
     }
 
     @Override
-    public Object visitNumber(Example1Parser.NumberContext ctx) {
-        return super.visitNumber(ctx);
+    public Node visitNumber(Example1Parser.NumberContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String value = ctx.NUMBER().getText();
+        int number = Integer.parseInt(value);
+        return new Number_expr(number,lineNumber);
     }
 
     @Override
-    public Object visitStringExp(Example1Parser.StringExpContext ctx) {
-        return super.visitStringExp(ctx);
+    public Node visitStringExp(Example1Parser.StringExpContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String value = ctx.STRING_EXP().getText();
+        return new String_expr(value,lineNumber);
     }
 
     @Override
-    public Object visitOperationExpression(Example1Parser.OperationExpressionContext ctx) {
-        return super.visitOperationExpression(ctx);
+    public Node visitOperationExpression(Example1Parser.OperationExpressionContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        Expression left = (Expression) visit(ctx.expr(0));
+        Expression right = (Expression) visit(ctx.expr(1));
+        String val = ctx.getChild(1).getText();
+        return new OperationExpression(left,right,val,lineNumber);
     }
 
     @Override
-    public Object visitAddingOne(Example1Parser.AddingOneContext ctx) {
-        return super.visitAddingOne(ctx);
+    public Node visitAddingOne(Example1Parser.AddingOneContext ctx) {
+        return (Node) visitAdding_one(ctx.adding_one());
     }
 
     @Override
-    public Object visitFastMatch(Example1Parser.FastMatchContext ctx) {
-        return super.visitFastMatch(ctx);
+    public Node visitFastMatch(Example1Parser.FastMatchContext ctx) {
+        return (Node) visitFast_math(ctx.fast_math());
     }
 
     @Override
-    public Object visitFunctionCall(Example1Parser.FunctionCallContext ctx) {
-        return super.visitFunctionCall(ctx);
+    public Node visitFunctionCall(Example1Parser.FunctionCallContext ctx) {
+        return (Node)super.visitFunctionCall(ctx);
     }
 
     //ToDo callfunction1
@@ -219,18 +230,31 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitAdding_one(Example1Parser.Adding_oneContext ctx) {
-        return super.visitAdding_one(ctx);
+    public Node visitAdding_one(Example1Parser.Adding_oneContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ctx.getChild(0).getText());
+        stringBuilder.append(ctx.getChild(1).getText());
+        return new AddingOne(stringBuilder.toString(),lineNumber);
     }
 
     @Override
-    public Object visitMinus_one(Example1Parser.Minus_oneContext ctx) {
-        return super.visitMinus_one(ctx);
+    public Node visitMinus_one(Example1Parser.Minus_oneContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ctx.getChild(0).getText());
+        stringBuilder.append(ctx.getChild(1).getText());
+        return new MinusOne(stringBuilder.toString(),lineNumber);
     }
 
     @Override
-    public Object visitFast_math(Example1Parser.Fast_mathContext ctx) {
-        return super.visitFast_math(ctx);
+    public Node visitFast_math(Example1Parser.Fast_mathContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String name = ctx.CHARS().getText();
+        String operation = ctx.getChild(1).getText()   ;
+        String val = ctx.NUMBER().getText();
+        int number = Integer.parseInt(val);
+        return new FastMath(name,operation,number,lineNumber);
     }
 
 

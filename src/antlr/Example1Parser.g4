@@ -32,8 +32,6 @@ list_exp
     : expr (COMMA expr)*
     ;
 
-
-
 function
     : function_type CHARS
        OPENTEXT function_parameters? CLOSETEXT
