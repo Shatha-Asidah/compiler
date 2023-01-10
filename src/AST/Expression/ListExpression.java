@@ -9,15 +9,14 @@ import java.util.List;
 public class ListExpression extends Node {
     public List<Expression> expressions;
 
-    public ListExpression() {
-//        this.lineNumber = lineNumber;
+    public ListExpression(int lineNumber) {
+        this.expressions =  new ArrayList<>();;
+        this.lineNumber = lineNumber;
         this.nodeName = "ListExpression";
         this.nodeType = NodeType.Expression;
-        this.expressions =  new ArrayList<>();;
     }
 
     public void addExpression(Expression expression){
-
         this.expressions.add(expression);
     }
 

@@ -1,4 +1,6 @@
 package AST.TopLevel;
 
-public class Function {
+import AST.Node.Node;
+
+public class Function extends Node {
 }
