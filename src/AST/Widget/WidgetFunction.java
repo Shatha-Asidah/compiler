@@ -13,7 +13,7 @@ public class WidgetFunction extends Node {
         this.lineNumber = lineNumber;
         this.block = block;
         this.nodeName = "Widget Function";
-        this.nodeType = NodeType.FunctionDecleration;
+        this.nodeType = NodeType.FunctionDeclaration;
     }
 
 

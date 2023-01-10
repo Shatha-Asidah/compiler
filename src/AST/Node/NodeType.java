@@ -6,6 +6,7 @@ public enum NodeType {
     Expression,
     VariableDeclaration,
     ClassDeclaration,
-    FunctionDecleration,
+    FunctionDeclaration,
     ListDeclaration,
+    FunctionParameter;
 }
