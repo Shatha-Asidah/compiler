@@ -814,20 +814,36 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
-
+//
     @Override
     public Object visitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) {
         return super.visitColumnWidgetList(ctx);
     }
 
     @Override
-    public Object visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) {
-        return super.visitMainAxisAlignment(ctx);
+    public KeyValueWidget visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) {
+
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.MAINAXISALIGNMENT_VALUE().getText();
+
+        Node value = (Node) visit(ctx.MAINAXISALIGNMENT_VALUES());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
+
+        value.parent = keyValueWidget;
+        return keyValueWidget;
+
     }
 
     @Override
-    public Object visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) {
-        return super.visitMainAxisSize(ctx);
+    public KeyValueWidget visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) {
+
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.MAINAXISSIZE_VALUE().getText();
+        Node value = (Node) visit(ctx.MAINAXISSIZE_VALUES());
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
+
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override
