@@ -310,10 +310,10 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return new For_Second_Part(value1,operation_if,value2,lineNumber);
     }
 
-    @Override
-    public Object visitBlock(Example1Parser.BlockContext ctx) {
-        return super.visitBlock(ctx);
-    }
+//    @Override
+//    public Object visitBlock(Example1Parser.BlockContext ctx) {
+//        return super.visitBlock(ctx);
+//    }
 
     @Override
     public Node visitForStatementNumber(Example1Parser.ForStatementNumberContext ctx) {
@@ -728,9 +728,9 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public KeyValueWidget visitFontSizeKeyValue(Example1Parser.FontSizeKeyValueContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.FONTSIZE().getText();
-        Node value = (Node) visit(ctx.NUMBER());
+        int number = Integer.parseInt(ctx.NUMBER().getText());
+        Node value = new Number_expr(number,lineNumber);
         KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
-
         value.parent = keyValueWidget;
         return keyValueWidget;
     }

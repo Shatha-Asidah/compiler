@@ -16,7 +16,7 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 public class Main {
     public static void main(String[] args) {
         try {
-            String path = "Test/test1.txt";
+            String path = "Test/text2.txt";
             CharStream input = fromFileName(path);
             Example1Lexer lexer = new Example1Lexer(input);
             CommonTokenStream token = new CommonTokenStream(lexer);

@@ -1,3 +1,6 @@
+int c =9;
+String y = "cry";
+
 Scaffold(
       body: Container(
         child: Row(

@@ -20,39 +20,50 @@ Scaffold(
           Column(
             children: [
              ElevatedButton(
-                      onPressed: (){},
-                      color :  red,
-                      cild: Image.assets(
-                "assets_images_compiler_jpg",
-              ),
-              Text("Hello Ist ME",
-                  style: TextStyle(
-                    color: red,
-                    fontSize: 20,
-                  )),)
-                ElevatedButton(
-                         onPressed: (){},
-                         color :  red,
-                         cild:  Image.assets(
-                "assets_images_compiler_jpg",
-              ),
-              Text("Hello, Can You Hear ME",
-                  style: TextStyle(
-                    color: red,
-                    fontSize: 20,
-                  )),)
+                                   onPressed: (){},
+                                   color :  red,
+                                   child: Column(
+                                   children:[
+
+                                   Image.assets(
+                             "assets_images_compiler_jpg",
+                           ),
+                           Text("Hello Ist ME",
+                               style: TextStyle(
+                                 color: red,
+                                 fontSize: 20,
+                               ),)],)),
+              ElevatedButton(
+                                    onPressed: (){},
+                                    color :  red,
+                                    child: Column(
+                                    children:[
+
+                                    Image.assets(
+                              "assets_images_compiler_jpg",
+                            ),
+                            Text("Hello Ist ME",
+                                style: TextStyle(
+                                  color: red,
+                                  fontSize: 20,
+                                ),)],)),
                  ElevatedButton(
-                          onPressed: (){},
-                          color :  red,
-                          cild: Image.assets(
-                "assets_images_compiler_jpg",
-              ),
-              Text("Hello World",
-                  style: TextStyle(
-                    color: red,
-                    fontSize: 20,
-                  )))
+                                       onPressed: (){},
+                                       color :  red,
+                                       child: Column(
+                                       children:[
+
+                                       Image.assets(
+                                 "assets_images_compiler_jpg",
+                               ),
+                               Text("Hello Ist ME",
+                                   style: TextStyle(
+                                     color: red,
+                                     fontSize: 20,
+                                   ),)],))
+
             ],
+
           )
         ],
       ),,
