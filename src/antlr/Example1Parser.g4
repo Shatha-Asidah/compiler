@@ -252,6 +252,7 @@ color
     : CHARS
     ;
 
+
 e_button
     : E_BUTTON OPENTEXT e_buttonProperties CLOSETEXT
     ;

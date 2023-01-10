@@ -415,8 +415,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     //Scaffold
-
-
     @Override
     public Node visitScaffold(Example1Parser.ScaffoldContext ctx) {
         String widgetName = ctx.SCAFFOLD().getText();
@@ -456,7 +454,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     //Image
-
     @Override
     public Node visitImage(Example1Parser.ImageContext ctx) {
         String widgetName = ctx.IMAGEASSETS().getText();
@@ -701,7 +698,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return keyValueWidget;
     }
 
-    /////ToDo callfunction2
+
     @Override
     public Node visitCallFunction(Example1Parser.CallFunctionContext ctx) {
         int lineNumber = ctx.getStart().getLine();
@@ -756,8 +753,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
 
     //Column and Row
-
-
     @Override
     public Node visitRow(Example1Parser.RowContext ctx) {
 
