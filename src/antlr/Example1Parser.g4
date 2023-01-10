@@ -35,14 +35,17 @@ list_exp
 
 
 function
-    : (VOID| type) CHARS
+    : function_type CHARS
        OPENTEXT function_parameters? CLOSETEXT
        block
     ;
 function_parameters
     : type CHARS (COMMA type CHARS)*
     ;
-
+function_type
+    : VOID      #VoidTypeFunction
+    | type      #TypeFunction
+    ;
 for_statement
     : FOR OPENTEXT for_first_part SEMICOLON
     for_secomd_part SEMICOLON

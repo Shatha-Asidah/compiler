@@ -8,5 +8,5 @@ public enum NodeType {
     ClassDeclaration,
     FunctionDeclaration,
     ListDeclaration,
-    FunctionParameter;
+    FunctionParameter,
 }

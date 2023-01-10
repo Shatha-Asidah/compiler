@@ -5,6 +5,8 @@ import AST.Node.DataType;
 import AST.Node.Node;
 import AST.Statement.Block;
 import AST.TopLevel.ClassDeclaration;
+import AST.TopLevel.Function;
+import AST.TopLevel.FunctionParameter;
 import AST.TopLevel.VariableDeclaration;
 import AST.Widget.KeyValueWidget;
 import AST.Widget.Widget;
@@ -89,6 +91,54 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     @Override
     public Node visitList_exp(Example1Parser.List_expContext ctx) {
         return (Node) super.visitList_exp(ctx);
+    }
+
+    //Function Declaration
+
+    @Override
+    public Node visitFunction(Example1Parser.FunctionContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        DataType type = (DataType) visit(ctx.function_type());
+        String id = ctx.CHARS().getText();
+        List<FunctionParameter> functionParameters = new ArrayList<>();
+        if(ctx.function_parameters() != null){
+            functionParameters = visitFunction_parameters(ctx.function_parameters());
+        }
+        Block block = (Block) visit(ctx.block());
+        Function function = new Function(functionParameters, type, block, id,lineNumber);
+        block.parent = function;
+        if(ctx.function_parameters() != null){
+            for(int i = 0; i < function.functionParameterList.size(); i++){
+                function.functionParameterList.get(i).parent = function;
+                if(i != function.functionParameterList.size() - 1){
+                    function.functionParameterList.get(i).sibling = function.functionParameterList.get(i + 1);
+                }
+            }
+        }
+        return function;
+    }
+
+    @Override
+    public List<FunctionParameter> visitFunction_parameters(Example1Parser.Function_parametersContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        List<FunctionParameter> functionParameters = new ArrayList<>();
+        for(int i = 0; i < ctx.type().size(); i++){
+            DataType type = (DataType) visit(ctx.type().get(i));
+            String chars = ctx.CHARS(i).getText();
+            FunctionParameter functionParameter = new FunctionParameter(type, chars, lineNumber);
+            functionParameters.add(functionParameter);
+        }
+        return functionParameters;
+    }
+
+    @Override
+    public DataType visitVoidTypeFunction(Example1Parser.VoidTypeFunctionContext ctx) {
+        return DataType.Void;
+    }
+
+    @Override
+    public DataType visitTypeFunction(Example1Parser.TypeFunctionContext ctx) {
+        return (DataType) visit(ctx.type());
     }
 
     //Class Declaration

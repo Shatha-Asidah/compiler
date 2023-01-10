@@ -7,4 +7,5 @@ public enum DataType {
     Double,
     List,
     Var,
+    Void,
 }

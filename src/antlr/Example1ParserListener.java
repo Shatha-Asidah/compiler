@@ -164,6 +164,30 @@ public interface Example1ParserListener extends ParseTreeListener {
 	 */
 	void exitFunction_parameters(Example1Parser.Function_parametersContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code VoidTypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterVoidTypeFunction(Example1Parser.VoidTypeFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VoidTypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitVoidTypeFunction(Example1Parser.VoidTypeFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeFunction(Example1Parser.TypeFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeFunction(Example1Parser.TypeFunctionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Example1Parser#for_statement}.
 	 * @param ctx the parse tree
 	 */

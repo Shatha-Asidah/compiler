@@ -103,6 +103,20 @@ public interface Example1ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunction_parameters(Example1Parser.Function_parametersContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code VoidTypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVoidTypeFunction(Example1Parser.VoidTypeFunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code TypeFunction}
+	 * labeled alternative in {@link Example1Parser#function_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeFunction(Example1Parser.TypeFunctionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Example1Parser#for_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
