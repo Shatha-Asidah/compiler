@@ -3,10 +3,7 @@ package AST;
 import AST.Expression.*;
 import AST.Node.DataType;
 import AST.Node.Node;
-import AST.Statement.Block;
-import AST.Statement.ForStatementMinus;
-import AST.Statement.ForStatementNumber;
-import AST.Statement.ForStatementPlus;
+import AST.Statement.*;
 import AST.TopLevel.ClassDeclaration;
 import AST.TopLevel.Function;
 import AST.TopLevel.FunctionParameter;
@@ -18,7 +15,6 @@ import AST.Widget.WidgetList;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -389,8 +385,9 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     }
 
     @Override
-    public Object visitElseCodeAttributes(Example1Parser.ElseCodeAttributesContext ctx) {
-        return super.visitElseCodeAttributes(ctx);
+    public Node visitElseCodeAttributes(Example1Parser.ElseCodeAttributesContext ctx) {
+        return (Node) visitElse_statment(ctx.else_statment());
+
     }
 
     @Override
@@ -430,23 +427,43 @@ public class MyVisitor extends Example1ParserBaseVisitor {
 
     ///TODO: abeer & shaza  326 -> 376
     @Override
-    public Object visitElse_statment(Example1Parser.Else_statmentContext ctx) {
-        return super.visitElse_statment(ctx);
+    public Node visitElse_statment(Example1Parser.Else_statmentContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        Block block = (Block) visitBlock(ctx.block());
+        return (Node) new ElseStatment(block,lineNumber);
     }
 ///////////////////
     @Override
-    public Object visitOperation_if(Example1Parser.Operation_ifContext ctx) {
-        return super.visitOperation_if(ctx);
+    public Node visitOperation_if(Example1Parser.Operation_ifContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String operation = ctx.getChild(0).getText();
+        return new Operation_if(operation,lineNumber);
     }
 
     @Override
-    public Object visitWhile_statment(Example1Parser.While_statmentContext ctx) {
-        return super.visitWhile_statment(ctx);
+    public Node visitWhile_statment(Example1Parser.While_statmentContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        IfPart ifPart =(IfPart) visit(ctx.if_part());
+        Block block = (Block) visitBlock(ctx.block());
+        return new While_Statment(ifPart,block,lineNumber);
     }
 
     @Override
-    public Object visitIf_statment(Example1Parser.If_statmentContext ctx) {
-        return super.visitIf_statment(ctx);
+    public Node visitIf_statment(Example1Parser.If_statmentContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        IfPart ifPart =(IfPart) visit(ctx.if_part());
+        Block block = (Block) visitBlock(ctx.block());
+        List<ElseIfStatements> elseIfStatements = new ArrayList<>();
+        if(!ctx.else_if_statements().isEmpty()){
+            for(int i =0 ; i< ctx.else_if_statements().size();i++)
+            {
+                ElseIfStatements elseIfStatements1= (ElseIfStatements) visit(ctx.else_if_statements(i));
+                elseIfStatements.add(elseIfStatements1);
+            }
+        }
+        ElseStatment elseStatment = (ElseStatment) visit(ctx.else_statment());
+        return new IfStatment(ifPart,block,elseIfStatements,elseStatment,lineNumber);
+
     }
 
     @Override
@@ -479,8 +496,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return super.visitPrint_statements(ctx);
     }
 
+    @Override
+    public Object visitBlock(Example1Parser.BlockContext ctx) {
+        return super.visitBlock(ctx);
+    }
 
-    //Widgets
+//Widgets
 
 
     @Override

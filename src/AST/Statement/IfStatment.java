@@ -4,13 +4,16 @@ import AST.Expression.IfPart;
 import AST.Node.Node;
 import AST.Node.NodeType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class IfStatment extends Node {
     IfPart ifpart;
     Block block;
-    ElseIfStatements elseIfStatements;
+    public List<ElseIfStatements> elseIfStatements;
     ElseStatment elseStatment;
 
-    public IfStatment(IfPart ifpart, Block block, ElseIfStatements elseIfStatements, ElseStatment elseStatment,int lineNumber) {
+    public IfStatment(IfPart ifpart, Block block, List<ElseIfStatements> elseIfStatements, ElseStatment elseStatment,int lineNumber) {
         this.ifpart = ifpart;
         this.block = block;
         this.elseIfStatements = elseIfStatements;

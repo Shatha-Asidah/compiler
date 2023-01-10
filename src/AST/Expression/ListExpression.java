@@ -6,7 +6,7 @@ import AST.Node.NodeType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListExpression extends Node {
+public class ListExpression extends Expression {
     public List<Expression> expressions;
 
     public ListExpression(int lineNumber) {

@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/antlr/Example1Parser.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\USER\IntelliJ Projects\Compiler Projects\compiler_final\src" />
+          <option name="outputDir" value="C:\Users\gaming center\IdeaProjects\compiler\src\antlr" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />
