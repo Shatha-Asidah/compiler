@@ -2,6 +2,7 @@ package AST.Statement;
 
 import AST.Expression.IfPart;
 import AST.Node.Node;
+import AST.Node.NodeType;
 
 public class IfStatment extends Node {
     IfPart ifpart;
@@ -9,11 +10,14 @@ public class IfStatment extends Node {
     ElseIfStatements elseIfStatements;
     ElseStatment elseStatment;
 
-    public IfStatment(IfPart ifpart, Block block, ElseIfStatements elseIfStatements, ElseStatment elseStatment) {
+    public IfStatment(IfPart ifpart, Block block, ElseIfStatements elseIfStatements, ElseStatment elseStatment,int lineNumber) {
         this.ifpart = ifpart;
         this.block = block;
         this.elseIfStatements = elseIfStatements;
         this.elseStatment = elseStatment;
+        this.nodeName = " IfStatment Expression";
+        this.nodeType = NodeType.Expression;
+        this.lineNumber = lineNumber;
     }
 
     @Override

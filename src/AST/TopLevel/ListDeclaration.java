@@ -14,7 +14,7 @@ public class ListDeclaration extends Node {
         this.type = type;
         this.listExpression = listExpression;
         this.nodeName = "ListDeclaration";
-        this.nodeType = NodeType.ListDeclaration;
+        //this.nodeType = NodeType.;
         this.lineNumber = lineNumber;
 
     }
