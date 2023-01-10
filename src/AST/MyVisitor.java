@@ -1,7 +1,6 @@
 package AST;
 
 import AST.Expression.*;
-import AST.Expression.String_expr;
 import AST.Node.DataType;
 import AST.Node.Node;
 import AST.Statement.Block;
@@ -159,13 +158,12 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return super.visitFunctionCall(ctx);
     }
 
+    //ToDo callfunction1
     @Override
-    public Object visitCall_function(Example1Parser.Call_functionContext ctx) {
-
+    public Node visitCall_function(Example1Parser.Call_functionContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String call_name = ctx.CHARS().getText();
         return new FunctionCall(call_name, lineNumber);
-
     }
 
     @Override
@@ -703,6 +701,7 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return keyValueWidget;
     }
 
+    /////ToDo callfunction2
     @Override
     public Node visitCallFunction(Example1Parser.CallFunctionContext ctx) {
         int lineNumber = ctx.getStart().getLine();
