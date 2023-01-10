@@ -11,7 +11,7 @@ public class For_Second_Part extends Expression {
         this.stringid = stringid;
         this.op = op;
         this.value2 = value2;
-        this.nodeName = "Bool Expression";
+        this.nodeName = "For_Second_Part Expression";
         this.nodeType = NodeType.Expression;
         this.lineNumber = lineNumber;
 
