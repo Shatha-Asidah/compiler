@@ -10,6 +10,7 @@ import AST.TopLevel.VariableDeclaration;
 import AST.Widget.KeyValueWidget;
 import AST.Widget.Widget;
 import AST.Widget.WidgetFunction;
+import AST.Widget.WidgetList;
 import antlr.Example1Parser;
 import antlr.Example1ParserBaseVisitor;
 
@@ -494,9 +495,11 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public KeyValueWidget visitImageWidthHeight(Example1Parser.ImageWidthHeightContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         String key = ctx.getChild(0).getText();
-        Node value = (Node) visit(ctx.getChild(2));
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
-        value.parent = keyValueWidget;
+        String value = ctx.NUMBER().getText();
+        int intValue = Integer.parseInt(value);
+        Node valueNode = new Number_expr(intValue, lineNumber) ;
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, valueNode, lineNumber);
+        valueNode.parent = keyValueWidget;
         return keyValueWidget;
 
     }
@@ -700,7 +703,6 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         return keyValueWidget;
     }
 
-    ///TODO: esmaeel
     @Override
     public Node visitCallFunction(Example1Parser.CallFunctionContext ctx) {
         int lineNumber = ctx.getStart().getLine();
@@ -712,7 +714,9 @@ public class MyVisitor extends Example1ParserBaseVisitor {
     public Node visitFunctionBlock(Example1Parser.FunctionBlockContext ctx) {
         int lineNumber = ctx.getStart().getLine();
         Block block = new Block();
-        return new WidgetFunction(block,lineNumber);
+        WidgetFunction widgetFunction =  new WidgetFunction(block,lineNumber);
+        block.parent = widgetFunction;
+        return widgetFunction;
     }
 
     @Override
@@ -814,41 +818,61 @@ public class MyVisitor extends Example1ParserBaseVisitor {
         value.parent = keyValueWidget;
         return keyValueWidget;
     }
-//
+
     @Override
-    public Object visitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) {
-        return super.visitColumnWidgetList(ctx);
+    public KeyValueWidget visitColumnWidgetList(Example1Parser.ColumnWidgetListContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        String key = ctx.getChild(0).getText();
+        Node value = (Node) visit(ctx.getChild(2));
+        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
+        value.parent = keyValueWidget;
+        return keyValueWidget;
     }
 
     @Override
-    public KeyValueWidget visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) {
-
+    public Node visitMainAxisAlignment(Example1Parser.MainAxisAlignmentContext ctx) {
         int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
         String key = ctx.MAINAXISALIGNMENT_VALUE().getText();
-
-        Node value = (Node) visit(ctx.MAINAXISALIGNMENT_VALUES());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
-
-        value.parent = keyValueWidget;
-        return keyValueWidget;
+        stringBuilder.append(key);
+        String dot = ctx.DOT().getText();
+        String value = ctx.MAINAXISALIGNMENT_VALUES().getText();
+        stringBuilder.append(dot).append(value);
+        return new String_expr(stringBuilder.toString(), lineNumber);
 
     }
 
     @Override
-    public KeyValueWidget visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) {
-
+    public Node visitMainAxisSize(Example1Parser.MainAxisSizeContext ctx) {
         int lineNumber = ctx.getStart().getLine();
+        StringBuilder stringBuilder = new StringBuilder();
         String key = ctx.MAINAXISSIZE_VALUE().getText();
-        Node value = (Node) visit(ctx.MAINAXISSIZE_VALUES());
-        KeyValueWidget keyValueWidget = new KeyValueWidget(key, value, lineNumber);
-
-        value.parent = keyValueWidget;
-        return keyValueWidget;
+        stringBuilder.append(key);
+        String dot = ctx.DOT().getText();
+        String value = ctx.MAINAXISSIZE_VALUES().getText();
+        stringBuilder.append(dot).append(value);
+        return new String_expr(stringBuilder.toString(), lineNumber);
     }
 
     @Override
-    public Object visitWidgetList(Example1Parser.WidgetListContext ctx) {
-        return super.visitWidgetList(ctx);
+    public Node visitWidgetList(Example1Parser.WidgetListContext ctx) {
+        int lineNumber = ctx.getStart().getLine();
+        List<Node> widgetListLocal = new ArrayList<>();
+        if(ctx.widget() != null){
+            for (int i = 0; i < ctx.widget().size(); i++) {
+                Node widget = (Node) visit(ctx.widget().get(i));
+                widgetListLocal.add(widget);
+            }
+            WidgetList widgetList = new WidgetList(widgetListLocal, lineNumber);
+            for (int i = 0; i < widgetList.widgets.size(); i++) {
+                if (i != widgetList.widgets.size() - 1) {
+                    widgetList.widgets.get(i).sibling = widgetList.widgets.get(i + 1);
+                }
+                widgetList.widgets.get(i).parent = widgetList;
+            }
+            return widgetList;
+        }
+        return new WidgetList(widgetListLocal, lineNumber);
     }
 }
 
